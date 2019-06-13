@@ -1,18 +1,34 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <HomeHeader/>
+    <scroller ref="my-scrooler">
+      <HomeBanner/>
+      <Navigate/>
+      <BigShot/>
+      <Recent/>
+    </scroller>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import { Component, Vue } from "vue-property-decorator";
+import HomeHeader from "@/components/HomeHeader.vue";
+import HomeBanner from "@/components/HomeBanner.vue";
+import Navigate from "@/components/Navigate.vue";
+import BigShot from "@/components/BigShot.vue";
+import Recent from "@/components/Recent.vue";
+
+import VueScroller from "vue-scroller";
+Vue.use(VueScroller);
 
 @Component({
   components: {
-    HelloWorld,
-  },
+    HomeHeader,
+    HomeBanner,
+    Navigate,
+    BigShot,
+    Recent
+  }
 })
 export default class Home extends Vue {}
 </script>

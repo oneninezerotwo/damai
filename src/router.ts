@@ -12,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      children: [{
+        path: '/',
+        name: 'recent',
+        component: () => import('./components/RecentContent.vue')
+      }]
     },
     {
       path: '/about',
