@@ -14,8 +14,12 @@ export default new Router({
       component: Home,
       children: [{
         path: '/',
-        name: 'recent',
-        component: () => import('./components/RecentContent.vue')
+        // name: 'recent',
+        // component: () => import('./components/RecentContent.vue')
+        components: {
+          recent: () => import('./components/RecentContent.vue'),
+          // moreshow: () => import('./components/MoreShowContent.vue')
+        }
       }]
     },
     {

@@ -1,12 +1,13 @@
 <template>
-  <div class="home">
+  <div class="home" ref="home">
     <HomeHeader/>
-    <scroller ref="my-scrooler">
-      <HomeBanner/>
-      <Navigate/>
-      <BigShot/>
-      <Recent/>
-    </scroller>
+    <!-- <scroller ref="my_scroller" :on-infinite="infinite"> -->
+    <HomeBanner/>
+    <Navigate/>
+    <BigShot/>
+    <Recent/>
+    <MoreShow/>
+    <!-- </scroller> -->
   </div>
 </template>
 
@@ -17,17 +18,45 @@ import HomeBanner from "@/components/HomeBanner.vue";
 import Navigate from "@/components/Navigate.vue";
 import BigShot from "@/components/BigShot.vue";
 import Recent from "@/components/Recent.vue";
+import MoreShow from "@/components/MoreShow.vue";
 
 import VueScroller from "vue-scroller";
 Vue.use(VueScroller);
 
 @Component({
+  mounted() {
+    const _this = this;
+    document.addEventListener("scroll", function() {
+      // console.log(_this.$refs.home.offsetHeight);
+      if (window.scrollY > 1100) {
+        _this.$store.state.tofix = true;
+        // _this.$store.state.offtop = _this.$refs.my_scroller.getPosition(
+        //   window
+        // ).top;
+      } else {
+        _this.$store.state.tofix = false;
+      }
+
+      if (
+        window.scrollY >=
+        _this.$refs.home.offsetHeight - window.innerHeight
+      ) {
+        _this.infinite();
+      }
+    });
+  },
+  methods: {
+    infinite() {
+      this.$store.state.scrollernum++;
+    }
+  },
   components: {
     HomeHeader,
     HomeBanner,
     Navigate,
     BigShot,
-    Recent
+    Recent,
+    MoreShow
   }
 })
 export default class Home extends Vue {}

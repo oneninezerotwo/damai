@@ -6,14 +6,14 @@
         <i class="iconfont icon-gengduo"></i>
       </span>
     </div>
-    <div class="wrapper" ref="wrapper" @touchmove.prevent>
+    <div class="wrapper" ref="wrapper">
       <ul class="content">
         <li v-for="(i,index) in bigshotcontent" :key="index" class="listitem">
           <div class="top">
             <img :src="i.artPic" alt="">
             <div class="nbox">
               <p v-text="i.artistName" class="name"></p>
-              <p class="fansnum">{{i.artFans}}万粉丝</p>
+              <p class="fansnum">{{(i.artFans/10000).toFixed(2)}}万粉丝</p>
             </div>
             <div class="follow">+关注</div>
           </div>
@@ -91,7 +91,6 @@ export default Vue.extend({
     width: 29rem;
     height: 3.4rem;
     margin-left: 0.48rem;
-    // overflow-x: scroll;
     white-space: nowrap;
     .listitem {
       display: inline-block;
