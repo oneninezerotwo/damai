@@ -8,7 +8,8 @@ export default new Vuex.Store({
     weeknum: 0,
     scrollernum: 0,
     tofix: false,
-    offtop: 0
+    offtop: 0,
+    locationcity: '全国'
   },
   mutations: {
 

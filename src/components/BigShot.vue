@@ -2,9 +2,9 @@
   <div id="bigshot">
     <div class="title">
       <p>大咖在大麦</p>
-      <span>查看更多
+      <router-link to="/artistlist" class="span">查看更多
         <i class="iconfont icon-gengduo"></i>
-      </span>
+      </router-link>
     </div>
     <div class="wrapper" ref="wrapper">
       <ul class="content">
@@ -71,7 +71,7 @@ export default Vue.extend({
       font-weight: 700;
       font-size: 0.453333rem;
     }
-    span {
+    .span {
       font-size: 0.32rem;
       color: #999;
       display: flex;
