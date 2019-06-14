@@ -20,29 +20,27 @@ export default Vue.extend({
       imgPath: []
     };
   },
-  mounted() {
-    setTimeout(function() {
-      new Swiper("#swiper-container", {
-        autoplay: {
-          //自动轮播
-          delay: 1000, //延时，每隔两秒再切下一张
-          disableOnInteraction: false //设置成拖拽后还能继续运行
-        },
-        loop: true, //回路
-        speed: 500, //切换速度
-        pagination: {
-          //显示焦点
-          el: ".swiper-pagination"
-        }
-      });
-    }, 30);
-  },
   methods: {
     async getlist() {
       const data = await this.$axios(
         "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/banner-nav"
       );
       this.imgPath = data.data.data.focusPicList;
+      setTimeout(function() {
+        new Swiper("#swiper-container", {
+          autoplay: {
+            //自动轮播
+            delay: 1000, //延时，每隔两秒再切下一张
+            disableOnInteraction: false //设置成拖拽后还能继续运行
+          },
+          loop: true, //回路
+          speed: 500, //切换速度
+          pagination: {
+            //显示焦点
+            el: ".swiper-pagination"
+          }
+        });
+      }, 100);
     }
     
   },

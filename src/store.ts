@@ -7,7 +7,12 @@ export default new Vuex.Store({
   state: {
     dm_detail_info: [],
     dm_detail_list: [],
-    showCart: false
+    showCart: false,
+    weeknum: 0,
+    scrollernum: 0,
+    tofix: false,
+    offtop: 0,
+    locationcity: '全国'
   },
   mutations: {
     getDetailInfo(state, list) {

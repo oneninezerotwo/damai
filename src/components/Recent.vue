@@ -7,15 +7,9 @@
       </span>
     </div>
     <ul class="week">
-      <li>今天</li>
-      <li>今天</li>
-      <li>今天</li>
-      <li>今天</li>
-      <li>今天</li>
-      <li>今天</li>
-      <li>今天</li>
+      <li v-for="(i,index) in weekday" :key="index" v-text="i" :class="{'today':today===index}" @click="changeday(index)"></li>
     </ul>
-    <router-view/>
+    <router-view name="recent" />
   </div>
 </template>
 <script lang="ts">
@@ -23,21 +17,39 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      weekday: [
-        "星期日",
-        "星期一",
-        "星期二",
-        "星期三",
-        "星期四",
-        "星期五",
-        "星期六"
-      ],
-      myddy: 0
+      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+      myddy: 0,
+      today: 0,
+      changekey: 0
     };
   },
-  mounted() {
+  created() {
     const mydate = new Date();
     this.myddy = mydate.getDay();
+    this.$store.state.weeknum = this.myddy;
+  },
+  mounted() {
+    const dayarr = this.weekday.slice(this.myddy);
+    this.weekday.splice(this.myddy);
+    this.weekday = dayarr.concat(this.weekday);
+    this.weekday.splice(0, 2);
+    this.weekday.unshift("今天", "明天");
+  },
+  methods: {
+    changeday(i) {
+      this.today = i;
+      if (i === 0) {
+        this.$store.state.weeknum = this.myddy;
+      } else {
+        if (this.$store.state.weeknum < 6 && i <= this.myddy - 2) {
+          this.$store.state.weeknum = this.myddy + i;
+        } else {
+          this.myddy = this.changekey;
+          this.$store.state.weeknum = this.myddy;
+          this.changekey++;
+        }
+      }
+    }
   }
 });
 </script>
@@ -79,7 +91,7 @@ export default Vue.extend({
       color: #999;
     }
     .today {
-      color: #fff;
+      color: #000;
     }
   }
 }
