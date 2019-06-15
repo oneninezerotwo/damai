@@ -3,14 +3,13 @@
     <div class="swiper-container" id="swiper-container">
       <div class="swiper-wrapper">
         <div v-for="(i,index) in imgPath" :key="index" class="swiper-slide">
-          <img :src="i.pic" alt="">
+          <img :src="i.pic" alt>
         </div>
       </div>
       <!--分页-->
       <div class="swiper-pagination"></div>
     </div>
   </div>
-
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -43,6 +42,7 @@ export default Vue.extend({
         });
       }, 100);
     }
+    
   },
   created() {
     this.getlist();

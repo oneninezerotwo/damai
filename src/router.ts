@@ -5,7 +5,7 @@ import Home from './views/Home.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -21,37 +21,51 @@ export default new Router({
           // moreshow: () => import('./components/MoreShowContent.vue')
         }
       }],
-      meta: { title: 'é¦–é¡µ' },
-    },
-    {
+      meta: { title: 'Ê×Ò³' },
+    }, {
+      path: '/detail',
+      name: 'detail',
+      component: () => import('./views/detail/detail.vue'),
+    }, {
       path: '/search',
       name: 'search',
       component: () => import('./views/Search.vue'),
-      meta: { title: 'æœç´¢' },
+      meta: { title: 'ËÑË÷' },
     },
     {
       path: '/artistlist',
       name: 'artistlist',
       component: () => import('./views/Artistlist.vue'),
-      meta: { title: 'å¤§å’–åœ¨å¤§éº¦' },
+      meta: { title: '´ó¿§ÔÚ´óÂó' },
     },
     {
       path: '/location',
       name: 'location',
       component: () => import('./views/Location.vue'),
-      meta: { title: 'å®šä½' },
+      meta: { title: '¶¨Î»' },
     },
     {
       path: '/car',
       name: 'car',
       component: () => import('./views/Car.vue'),
-      meta: { title: 'æˆ‘çš„è®¢å•' },
+      meta: { title: 'ÎÒµÄ¶©µ¥' },
+<<<<<<< .mine
     },
     {
       path: '/activity',
       name: 'activity',
       component: () => import('./views/Activity.vue'),
-      meta: { title: 'å¤§å’–' },
+      meta: { title: '´ó¿§' },
     },
   ],
+=======
+    }
+  ]
+
+
+
+
+
+
+>>>>>>> .theirs
 });

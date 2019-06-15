@@ -26,3 +26,15 @@ i {
   height: 100%;
 }
 </style>
+
+<script>
+export default {
+  // 如果想看我写的详情页，把注释解开即可！！！！！！！！！！！
+  // created() {
+  //   if (this.$router.path !== "/detail") {
+  //     this.$router.replace("/detail");
+  //   }
+  // }
+};
+</script>
+

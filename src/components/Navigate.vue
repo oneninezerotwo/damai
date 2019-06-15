@@ -1,11 +1,13 @@
 <template>
   <div id="navbox">
+    <div class="navbtn" v-for="(n,index) in navlist" :key="index" @click="go_to_detail">
+      <img :src="n.pic" alt>
     <router-link to="/car" class="navbtn" v-for="(n,index) in navlist" :key="index">
       <img :src="n.pic" alt="">
       <p v-text="n.title"></p>
     </router-link>
     <div>
-      <img :src="adpath" alt="" class="ad">
+      <img :src="adpath" alt class="ad">
     </div>
   </div>
 </template>
@@ -25,6 +27,10 @@ export default Vue.extend({
       );
       this.navlist = data.data.data.navigationList;
       this.adpath = data.data.data.bannerList[0].pic;
+    },
+
+    go_to_detail() {
+      this.$router.push({ name: "detail" });
     }
   },
   created() {
