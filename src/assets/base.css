@@ -1,0 +1,112 @@
+
+
+.wrap_projects_content_item {
+    margin: .48rem;
+    margin-bottom: .96rem;
+}
+.project-item[data-v-442bf385] {
+    position: relative;
+    display: fixed;
+    display: -webkit-box;
+    display: -webkit-flex;
+}
+.project_newhome .project-item_pic[data-v-442bf385] {
+    font-size: 0;
+    height: 3.2rem;
+    position: relative;
+}
+.project_newhome .project-item_pic_poster[data-v-442bf385] {
+    width: 2.4rem;
+    height: 3.2rem;
+    border-radius: .08rem;
+    border: 1px solid rgba(0,0,0,.06);
+
+}
+.project_newhome .project-item_info[data-v-442bf385] {
+    margin-left: .32rem;
+    padding-bottom: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+.project_newhome .project-item_info_title[data-v-442bf385] {
+    width: 6.32rem;
+    font-size: .42667rem;
+    color: #111;
+    font-weight: 700;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    -webkit-line-clamp: 2;
+    margin-top: -.06667rem;
+    /* width: 7.14667rem; */
+    line-height: .6rem;
+    /* font-size: .4rem; */
+    letter-spacing: 0;
+}
+.project-item_limit_lines_2[data-v-442bf385] {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+}
+.project_newhome .project-item_info_title[data-v-442bf385] {
+    width: 6.32rem;
+    font-size: .42667rem;
+    color: #111;
+    font-weight: 700;
+}
+.project_newhome .project-item_info_time[data-v-442bf385] {
+    width: 6.32rem;
+    font-size: .32rem;
+    color: #aaa;
+    padding-top: .16rem;
+    -webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    letter-spacing: 0;
+}
+.project-item_info_promotion[data-v-442bf385] {
+    font-size: 0;
+}
+.project_newhome .project_newhome_tag[data-v-442bf385] {
+    padding: .01333rem .08rem .04rem;
+    font-size: .29333rem;
+    color: #ff1268;
+    background: #fbe8ef;
+    border-radius: .08rem .08rem .21333rem .08rem;
+    line-height: normal;
+    border: none;
+}
+.tag[data-v-2d7cf934] {
+    display: inline-block;
+    box-sizing: border-box;
+    letter-spacing: .01333rem;
+}
+.project-item_info_xuanzuo[data-v-442bf385] {
+    background: #eee!important;
+    color: #111!important;
+}
+.project-item_info_price[data-v-442bf385] {
+    margin-top: .26667rem;
+    font-size: 0;
+}
+.project_newhome .project-item_info_price[data-v-442bf385] {
+    position: absolute;
+    bottom: 0;
+    width: 98%;
+}
+.project-item_info_price_str[data-v-442bf385] {
+    display: inline-block;
+    box-sizing: border-box;
+    /* font-size: .42667rem; */
+    line-height: .42667rem;
+    /* color: #ff1268; */
+}
+.project_newhome .project-item_info_price_str[data-v-442bf385] {
+    font-size: .37333rem;
+    color: #ff1268;
+}
