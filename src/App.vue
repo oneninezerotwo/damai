@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view v-wechat-title="$route.meta.title"/>
+    <router-view v-wechat-title="$route.meta.title" />
   </div>
 </template>
 
@@ -30,7 +30,7 @@ i {
 <script>
 export default {
   // 如果想看我写的详情页，把注释解开即可！！！！！！！！！！！
-  created() {
+  created () {
     if (this.$router.path !== "/register") {
       this.$router.replace("/register");
     }

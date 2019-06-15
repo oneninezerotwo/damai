@@ -3,7 +3,7 @@
     <div class="top">
       <div class="aboutsearch">
         <i class="iconfont icon-sousuo"></i>
-        <input type="text" placeholder="搜索明星、演出比赛、场馆">
+        <input v-model="what" type="text" placeholder="搜索明星、演出比赛、场馆">
       </div>
       <span @click="goblack">取消</span>
     </div>
@@ -16,27 +16,28 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
       hotlist: [],
+      what: ""
     };
   },
   methods: {
     async gethotlist() {
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/search',
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/search"
       );
       this.hotlist = data.data.data.result.data;
     },
     goblack() {
       this.$router.go(-1);
-    },
+    }
   },
   mounted() {
     this.gethotlist();
-  },
+  }
 });
 </script>
 

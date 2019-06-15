@@ -29,8 +29,8 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import Bscroll from "better-scroll";
-import { constants } from "crypto";
+// import Bscroll from "better-scroll";
+// import { constants } from "crypto";
 export default Vue.extend({
   data() {
     return {
@@ -44,14 +44,13 @@ export default Vue.extend({
   },
   mounted() {
     this.createds();
-    this.scroll = new Bscroll(this.$refs.wrapper);
+    // this.scroll = new Bscroll(this.$refs.wrapper);
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        console.log("到底部了");
-      }
+      // if (window.scrollY > 200) {
+      //   console.log("到底部了");
+      // }
       // if (window.scrollY>= this.$refs.list.offsetHeight) {
       //   console.log("到底部了");
-
       //   this.createds();
       // }
       // // 滑动距离大于50处罚menu的固定
@@ -87,38 +86,38 @@ export default Vue.extend({
       this.$axios(
         "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1"
       ).then(res => {
-        console.log(res);
+        // console.log(res);
 
         this.projectInfo = res.data.data.projectInfo;
         //  this.projectInfo = this.projectInfo.concat(this.projectInfo);
         //  console.log(this.projectInfo)
-        this.$nextTick(() => {
-          if (!this.scroll) {
-            this.scroll = new Bscroll(this.$refs.wrapper, {});
-            this.scroll.on("touchend", pos => {
-              // 下拉动作
-              if (pos.y > 1) {
-                console.log(1);
-                this.createds();
-              }
-            });
-          } else {
-            this.scroll.refresh();
-            console.log(2);
-            let sh = document.querySelector(".content").scrollHeight;
-            let st = document.querySelector(".content").scrollTop;
-            let ch = document.querySelector(".content").clientHeight;
-            if (Math.ceil(st + ch) === sh) {
-              console.log("到底了");
-              //业务逻辑
-            }
-            // const content = document.querySelector(".content");
-            // if(content.scrollHeight>1500){
-            //   this.createds();
-            //   console.log(111);
-            // }
-          }
-        });
+        // this.$nextTick(() => {
+        //   if (!this.scroll) {
+        //     this.scroll = new Bscroll(this.$refs.wrapper, {});
+        //     this.scroll.on("touchend", pos => {
+        //       // 下拉动作
+        //       if (pos.y > 1) {
+        //         console.log(1);
+        //         this.createds();
+        //       }
+        //     });
+        //   } else {
+        //     this.scroll.refresh();
+        //     console.log(2);
+        //     let sh = document.querySelector(".content").scrollHeight;
+        //     let st = document.querySelector(".content").scrollTop;
+        //     let ch = document.querySelector(".content").clientHeight;
+        //     if (Math.ceil(st + ch) === sh) {
+        //       console.log("到底了");
+        //       //业务逻辑
+        //     }
+        //     // const content = document.querySelector(".content");
+        //     // if(content.scrollHeight>1500){
+        //     //   this.createds();
+        //     //   console.log(111);
+        //     // }
+        //   }
+        // });
       });
     }
     // toggle: function(index) {
