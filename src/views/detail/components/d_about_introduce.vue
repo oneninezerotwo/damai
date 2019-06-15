@@ -16,7 +16,7 @@
         ></div>
       </div>
     </div>
-    <div data-v-b684c5be data-spm="dmoredetail" class="project-readmore">展开更多</div>
+    <div data-v-b684c5be data-spm="dmoredetail" class="project-readmore" @click="showmore">展开更多</div>
   </div>
   <!-- ............介绍部分完............. -->
 </template>
@@ -34,13 +34,20 @@ export default {
     this.getDetailInfo();
   },
   methods: {
-    ...mapActions(["getDetailInfo"])
+    ...mapActions(["getDetailInfo"]),
+    showmore() {
+      //介绍部分加载更多
+      var showBtn = document.querySelector("#detail-html-box");
+      showBtn.style.cssText =
+        "overflow: visible !important;height: auto !important;";
+    }
   }
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 @import "../../../assets/common/common.css";
+
 .cell-content[data-v-b684c5be] {
   position: relative;
   display: block;
@@ -64,13 +71,21 @@ export default {
       display: flex;
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
-      flex-direction: column;    
+      flex-direction: column;
+
+      p,
+      span {
         display: block;
         word-wrap: break-word;
         word-break: normal;
         color: #888;
         font-size: 0.34667rem;
         line-height: 0.66667rem;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
   .project-readmore[data-v-b684c5be] {

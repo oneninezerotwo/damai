@@ -1,260 +1,281 @@
   <template>
-  <div
-    data-v-090ab3da
-    data-v-d0cc7b08
-    class="dm-popup pop dm-popup-bottom"
-    seatmapurl
-    style="z-index: 2003;"
-  >
-    <div data-v-13c34c4e data-v-090ab3da class="container safe-padding">
-      <div data-v-13c34c4e class="sku-header">
-        <div data-v-13c34c4e class="close-container">
-          <i
-            data-v-13c34c4e
-            class="iconfont icon-guanbi1 close-icon"
-            data-spm-anchor-id="a2o71.project.0.i9"
-          ></i>
-        </div>
-      </div>
-      <div data-v-13c34c4e class="sku-section">
-        <div data-v-92f7794c data-v-13c34c4e class="sku-prop">
-          <div data-v-2a37c1fd data-v-92f7794c class="cell">
-            <span data-v-2a37c1fd class="title">日期</span>
+  <div>
+    <div
+      data-v-090ab3da
+      data-v-d0cc7b08
+      class="dm-popup pop dm-popup-bottom"
+      seatmapurl
+      style="z-index: 2003;"
+    >
+      <div data-v-13c34c4e data-v-090ab3da class="container safe-padding">
+        <div data-v-13c34c4e class="sku-header">
+          <div data-v-13c34c4e class="close-container">
+            <i
+              data-v-13c34c4e
+              class="iconfont icon-guanbi1 close-icon"
+              data-spm-anchor-id="a2o71.project.0.i9"
+              @click="isFixedCart"
+            ></i>
           </div>
-          <div data-v-92f7794c class="prop-content">
-            <div data-v-3b12bd7e data-v-92f7794c class="cell">
-              <div data-v-3b12bd7e class="item item-selected">
-                <div data-v-3b12bd7e class="item-text item-text-selected">
-                  06.16 周日
+        </div>
+        <div data-v-13c34c4e class="sku-section">
+          <div data-v-92f7794c data-v-13c34c4e class="sku-prop">
+            <div data-v-2a37c1fd data-v-92f7794c class="cell">
+              <span data-v-2a37c1fd class="title">日期</span>
+            </div>
+            <div data-v-92f7794c class="prop-content">
+              <div data-v-3b12bd7e data-v-92f7794c class="cell">
+                <div data-v-3b12bd7e class="item item-selected">
+                  <div data-v-3b12bd7e class="item-text item-text-selected">
+                    06.16 周日
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
                   <!---->
                 </div>
-                <!---->
-                <!---->
-                <!---->
               </div>
             </div>
           </div>
-        </div>
-        <!---->
-        <div data-v-0be7abce data-v-13c34c4e class="sku-prop">
-          <div data-v-2a37c1fd data-v-0be7abce class="cell">
-            <span data-v-2a37c1fd class="title">场次</span>
-          </div>
-          <div data-v-0be7abce class="prop-content">
-            <div
-              data-v-3b12bd7e
-              data-v-0be7abce
-              class="cell"
-              data-spm-auto-perform
-              spm="a2o71.project.layer_select.dcoupon_perform"
-              coupontype="0"
-              clicktitle="19:30"
-              perform_id="210052474"
-              data-aplus-ae="x2_1b6c6cfb"
-              data-spm-anchor-id="a2o71.project.0.i10"
-            >
-              <div data-v-3b12bd7e class="item item-selected">
-                <div data-v-3b12bd7e class="item-text item-text-selected">
-                  19:30
+          <!---->
+          <div data-v-0be7abce data-v-13c34c4e class="sku-prop">
+            <div data-v-2a37c1fd data-v-0be7abce class="cell">
+              <span data-v-2a37c1fd class="title">场次</span>
+            </div>
+            <div data-v-0be7abce class="prop-content">
+              <div
+                data-v-3b12bd7e
+                data-v-0be7abce
+                class="cell"
+                data-spm-auto-perform
+                spm="a2o71.project.layer_select.dcoupon_perform"
+                coupontype="0"
+                clicktitle="19:30"
+                perform_id="210052474"
+                data-aplus-ae="x2_1b6c6cfb"
+                data-spm-anchor-id="a2o71.project.0.i10"
+              >
+                <div data-v-3b12bd7e class="item item-selected">
+                  <div data-v-3b12bd7e class="item-text item-text-selected">
+                    19:30
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
                   <!---->
                 </div>
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div data-v-ace160ca data-v-13c34c4e class="sku-prop">
+            <div data-v-2a37c1fd data-v-ace160ca class="cell">
+              <span data-v-2a37c1fd class="title">票档</span>
+            </div>
+            <div data-v-ace160ca class="prop-content">
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961106"
+                clicktitle="380（看台）"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x8_54d1b74"
+                data-spm-anchor-id="a2o71.project.0.i11"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    380（看台）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961107"
+                clicktitle="580（看台）"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x9_2fdfb0dd"
+                data-spm-anchor-id="a2o71.project.0.i12"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    580（看台）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961108"
+                clicktitle="880（看台）"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x10_57201862"
+                data-spm-anchor-id="a2o71.project.0.i13"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    880（看台）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961109"
+                clicktitle="1180（内场）"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x11_4f91fe85"
+                data-spm-anchor-id="a2o71.project.0.i14"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    1180（内场）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961110"
+                clicktitle="1580（内场）"
+                skutype="0"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x12_341b98ef"
+                data-spm-anchor-id="a2o71.project.0.i15"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    1580（内场）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <!---->
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4135766961111"
+                clicktitle="1980（内场）"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x13_5a6c25"
+                data-spm-anchor-id="a2o71.project.0.i16"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    1980（内场）
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">开售登记</span>
+                </div>
+              </div>
+              <div
+                data-v-3b12bd7e
+                data-v-ace160ca
+                class="cell"
+                data-spm-auto-price
+                sku_id="4302644530564"
+                clicktitle="VVIP2680"
+                skutype="1"
+                spm="a2o71.project.layer_select.dcoupon_price"
+                data-aplus-ae="x14_6c5f143f"
+                data-spm-anchor-id="a2o71.project.0.i17"
+              >
+                <div data-v-3b12bd7e class="item item-normal">
+                  <div data-v-3b12bd7e class="item-text item-text-normal">
+                    VVIP2680
+                    <!---->
+                  </div>
+                  <!---->
+                  <!---->
+                  <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div data-v-13c34c4e class="sku-bottom">
+          <!---->
+          <div data-v-48a40280 data-v-13c34c4e class="bottom-bar">
+            <div data-v-48a40280 class="bar-container">
+              <div data-v-48a40280 class="calc-container">
                 <!---->
                 <!---->
-                <!---->
+                <div data-v-48a40280 class="calc-status">
+                  <span data-v-48a40280>更多信息请前往选座页</span>
+                </div>
+              </div>
+              <div data-v-48a40280 class="button-container">
+                <div data-v-f02a117e data-v-48a40280 class="sku-default background-enable">
+                  <span data-v-48a40280 data-v-f02a117e @click="isFixedCart();go_to_car()">确定</span>
+                </div>
               </div>
             </div>
           </div>
           <!---->
         </div>
-        <div data-v-ace160ca data-v-13c34c4e class="sku-prop">
-          <div data-v-2a37c1fd data-v-ace160ca class="cell">
-            <span data-v-2a37c1fd class="title">票档</span>
-          </div>
-          <div data-v-ace160ca class="prop-content">
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961106"
-              clicktitle="380（看台）"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x8_54d1b74"
-              data-spm-anchor-id="a2o71.project.0.i11"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  380（看台）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961107"
-              clicktitle="580（看台）"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x9_2fdfb0dd"
-              data-spm-anchor-id="a2o71.project.0.i12"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  580（看台）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961108"
-              clicktitle="880（看台）"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x10_57201862"
-              data-spm-anchor-id="a2o71.project.0.i13"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  880（看台）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961109"
-              clicktitle="1180（内场）"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x11_4f91fe85"
-              data-spm-anchor-id="a2o71.project.0.i14"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  1180（内场）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961110"
-              clicktitle="1580（内场）"
-              skutype="0"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x12_341b98ef"
-              data-spm-anchor-id="a2o71.project.0.i15"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  1580（内场）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <!---->
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4135766961111"
-              clicktitle="1980（内场）"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x13_5a6c25"
-              data-spm-anchor-id="a2o71.project.0.i16"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  1980（内场）
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">开售登记</span>
-              </div>
-            </div>
-            <div
-              data-v-3b12bd7e
-              data-v-ace160ca
-              class="cell"
-              data-spm-auto-price
-              sku_id="4302644530564"
-              clicktitle="VVIP2680"
-              skutype="1"
-              spm="a2o71.project.layer_select.dcoupon_price"
-              data-aplus-ae="x14_6c5f143f"
-              data-spm-anchor-id="a2o71.project.0.i17"
-            >
-              <div data-v-3b12bd7e class="item item-normal">
-                <div data-v-3b12bd7e class="item-text item-text-normal">
-                  VVIP2680
-                  <!---->
-                </div>
-                <!---->
-                <!---->
-                <span data-v-3b12bd7e class="item-label-icon item-label-icon-normal-big">缺货登记</span>
-              </div>
-            </div>
-          </div>
-          <!---->
-          <!---->
-        </div>
-        <!---->
-        <!---->
-      </div>
-      <div data-v-13c34c4e class="sku-bottom">
-        <!---->
-        <div data-v-48a40280 data-v-13c34c4e class="bottom-bar">
-          <div data-v-48a40280 class="bar-container">
-            <div data-v-48a40280 class="calc-container">
-              <!---->
-              <!---->
-              <div data-v-48a40280 class="calc-status">
-                <span data-v-48a40280>更多信息请前往选座页</span>
-              </div>
-            </div>
-            <div data-v-48a40280 class="button-container">
-              <div data-v-f02a117e data-v-48a40280 class="sku-default background-enable">
-                <span data-v-48a40280 data-v-f02a117e>确定</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!---->
       </div>
     </div>
+    <!-- 遮罩 -->
+    <div class="v-modal" style="z-index: 2000;"></div>
   </div>
 </template>
+<script>
+import { mapState, mapActions } from "vuex";
+export default {
+  computed: {
+    ...mapState(["showCart", "dm_detail_info"])
+  },
+  methods: {
+    ...mapActions(["isFixedCart"]),
+    go_to_car() {
+      let id = this.dm_detail_info.detailViewComponentMap.item.staticData
+        .itemBase.itemId;
+      this.$router.push({ path: "./car", query: { id: id } });
+    }
+  }
+};
+</script>
 
 
 <style lang="less" scoped>
@@ -640,6 +661,15 @@
   .safe-padding {
     padding-bottom: calc(env(safe-area-inset-bottom) * 3);
   }
+}
+.v-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #000;
 }
 </style>
 

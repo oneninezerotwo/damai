@@ -3,7 +3,12 @@
     <div class="dm-empty" v-if="!ticket.length">
       <div class="dm-empty__box">
         <div class="dm-empty__img">
-          <div><img src="//gw.alicdn.com/tfs/TB1vfTxsNSYBuNjSsphXXbGvVXa-711-507.png" class="order-list-empty-img"></div>
+          <div>
+            <img
+              src="//gw.alicdn.com/tfs/TB1vfTxsNSYBuNjSsphXXbGvVXa-711-507.png"
+              class="order-list-empty-img"
+            >
+          </div>
         </div>
         <div class="dm-empty__tips">
           <div>
@@ -12,28 +17,48 @@
         </div>
       </div>
     </div>
-    <div data-v-6ac40e55="" class="order-item" v-if="ticket.length">
-      <div data-v-6ac40e55="" class="project-info">
-        <div data-v-663ddca6="" class="_item" data-v-6ac40e55="">
-          <div data-v-663ddca6="" class="flex-box">
-            <div data-v-663ddca6="" class="left">
-              <div data-v-663ddca6="" class="project__info">
-                <div data-v-663ddca6="" class="title limit_lines_2 black_333 bold">李云迪 奏鸣曲 2019世界巡回钢琴独奏音乐会上海站</div>
-                <div data-v-663ddca6="" class="line__item grey_666">2019.12.03 19:30</div>
-                <div data-v-663ddca6="" class="line__item grey_666">上海市 / 东方艺术中心-音乐厅</div>
+    <div data-v-6ac40e55 class="order-item" v-if="ticket.length">
+      <div data-v-6ac40e55 class="project-info">
+        <div data-v-663ddca6 class="_item" data-v-6ac40e55>
+          <div data-v-663ddca6 class="flex-box">
+            <div data-v-663ddca6 class="left">
+              <div data-v-663ddca6 class="project__info">
+                <div
+                  data-v-663ddca6
+                  class="title limit_lines_2 black_333 bold"
+                >{{dm_detail_info.detailViewComponentMap.item.staticData.itemBase.itemName}}</div>
+                <div
+                  data-v-663ddca6
+                  class="line__item grey_666"
+                >{{dm_detail_info.detailViewComponentMap.item.staticData.itemBase.showTime}}</div>
+                <div
+                  data-v-663ddca6
+                  class="line__item grey_666"
+                >{{dm_detail_info.detailViewComponentMap.item.staticData.venue.venueCityName}} / {{dm_detail_info.detailViewComponentMap.item.staticData.venue.venueName}}</div>
                 <!---->
-                <div data-v-663ddca6="" class="price-info">
-                  <span data-v-663ddca6="" class="black_000">¥
-                    <span data-v-663ddca6="" class="price">580.00</span>
+                <div data-v-663ddca6 class="price-info">
+                  <span data-v-663ddca6 class="black_000">
+                    ¥
+                    <span
+                      data-v-663ddca6
+                      class="price"
+                    >{{dm_detail_info.detailViewComponentMap.item.item.priceRange}}</span>
                   </span>
-                  <span data-v-663ddca6="" class="grey_666">/共1张</span>
+                  <span data-v-663ddca6 class="grey_666">/共1张</span>
                   <!---->
                 </div>
               </div>
             </div>
-            <div data-v-663ddca6="" class="right">
-              <div data-v-663ddca6="" class="text_right mb_42 black_000">待付款</div>
-              <div data-v-663ddca6="" class="poster"><img data-v-663ddca6="" src="http://pimg.dmcdn.cn/perform/project/1777/177743_n_171_214.jpg" default-src="https://gw.alicdn.com/tfs/TB1lpyrjnZmx1VjSZFGXXax2XXa-132-178.png" onerror="javascript:this.src=this.getAttribute('default-src')"></div>
+            <div data-v-663ddca6 class="right">
+              <div data-v-663ddca6 class="text_right mb_42 black_000">待付款</div>
+              <div data-v-663ddca6 class="poster">
+                <img
+                  data-v-663ddca6
+                  :src="dm_detail_info.detailViewComponentMap.item.staticData.itemBase.itemPic"
+                  default-src="https://gw.alicdn.com/tfs/TB1lpyrjnZmx1VjSZFGXXax2XXa-132-178.png"
+                  onerror="javascript:this.src=this.getAttribute('default-src')"
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -41,16 +66,41 @@
       <!---->
     </div>
   </div>
-
 </template>
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
+import { mapState, mapActions } from "vuex";
 export default Vue.extend({
   data() {
     return {
-      ticket: [],
+      ticket: []
+      // buyId: []
     };
   },
+  computed: {
+    //映射数据
+    ...mapState(["dm_detail_info"])
+  },
+  created() {
+    let ids = this.$route.query.id;
+    this.ticket.push(ids);
+    console.log(this.ticket);
+  },
+  mounted() {
+    //获取图片列表
+    // console.log(this.dm_detail_info);
+    this.getDetailInfo();
+    this.renderBuyGoods();
+  },
+  methods: {
+    ...mapActions(["getDetailInfo"]),
+    //渲染相应的id商品
+    renderBuyGoods() {
+      let allGoodsId = this.dm_detail_info.detailViewComponentMap.item
+        .staticData.itemBase.itemId;
+      console.log(allGoodsId);
+    }
+  }
 });
 </script>
 
