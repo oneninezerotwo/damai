@@ -1,7 +1,7 @@
 <template>
   <div id="navbox">
 
-    <router-link to="/car" class="navbtn" v-for="(n,index) in navlist" :key="index">
+    <router-link to="/lists" class="navbtn" v-for="(n,index) in navlist" :key="index">
       <img :src="n.pic" alt="">
       <p v-text="n.title"></p>
     </router-link>

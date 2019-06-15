@@ -10,20 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home', 
+      name: 'home',
       component: Home,
       children: [{
         path: '/',
-        name: 'recent',
-        component: () => import('./components/RecentContent.vue'),
-      }],
         // name: 'recent',
-        // component: () => import('./components/RecentContent.vue')
+        // component: () => import('./components/RecentContent.vue'),
         components: {
           recent: () => import('./components/RecentContent.vue'),
           // moreshow: () => import('./components/MoreShowContent.vue')
         },
-      
+      }],
       meta: { title: '首页' },
     }, {
       path: '/detail',
@@ -35,7 +32,7 @@ export default new Router({
       component: () => import('./views/Search.vue'),
       meta: { title: '搜索' },
     },
-   
+
     {
       path: '/lists',
       name: 'lists',
@@ -48,17 +45,17 @@ export default new Router({
         path: '/',
         name: 'all',
         component: () => import('./components/children/All.vue'),
-      },{
+      }, {
         path: 'all',
         name: 'all',
         component: () => import('./components/children/All.vue'),
-      },{
+      }, {
         path: 'concert',
         name: 'concert',
         component: () => import('./components/children/Concert.vue'),
       },]
     },
-      {
+    {
       path: '/artistlist',
       name: 'artistlist',
       component: () => import('./views/Artistlist.vue'),
