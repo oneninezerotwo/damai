@@ -56,5 +56,17 @@ export default new Router({
       component: () => import('./views/Activity.vue'),
       meta: { title: '大咖' },
     },
+    {
+      path: '/mine',
+      name: 'mine',
+      component: () => import('./views/Mine/Mine.vue'),
+      meta: { title: '我的' },
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/login/login.vue'),
+      meta: { title: '我的' },
+    },
   ],
 });

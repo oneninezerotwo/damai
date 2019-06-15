@@ -1,48 +1,48 @@
 <template>
   <div id="RecentContent" ref="cardwrapper">
     <ul class="card" :style="ulwidth">
-      <li v-for="(i,index) in alist" :key="index">
+      <router-link to="/detail" v-for="(i,index) in alist" :key="index" class="li">
         <img :src="i.verticalPic" alt="">
         <p v-text="i.name" class="name"></p>
         <p class="price">￥{{i.priceLow}} 起</p>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import BScroll from 'better-scroll';
+import Vue from "vue";
+import BScroll from "better-scroll";
 export default Vue.extend({
   data() {
     return {
       alist: [],
       ulwidth: {
-        width: '',
-      },
+        width: ""
+      }
       // myddy: 0
     };
   },
   computed: {
     myddy() {
       return this.$store.state.weeknum;
-    },
+    }
   },
   methods: {
     async getalist() {
       // const mydate = new Date();
       // this.myddy = this.$store.state.weeknum;
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/list' +
-          this.myddy,
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/list" +
+          this.myddy
       );
       this.alist = data.data.data.currentCity;
-      this.ulwidth.width = this.alist.length * 4.33 + 'rem';
-    },
+      this.ulwidth.width = this.alist.length * 4.33 + "rem";
+    }
   },
   watch: {
     myddy() {
       this.getalist();
-    },
+    }
   },
   mounted() {
     this.getalist();
@@ -51,10 +51,10 @@ export default Vue.extend({
         startX: 0,
         click: true,
         scrollX: true,
-        scrollY: false,
+        scrollY: false
       });
     });
-  },
+  }
 });
 </script>
 
@@ -67,9 +67,10 @@ export default Vue.extend({
     width: 3000px;
     white-space: nowrap;
     overflow: hidden;
-    li {
+    .li {
       float: left;
       margin-right: 0.32rem;
+      color: #000;
       img {
         display: inline-block;
         width: 4rem;

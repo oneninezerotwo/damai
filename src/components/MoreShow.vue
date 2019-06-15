@@ -37,7 +37,7 @@
     </div>
 
     <div class="listbox">
-      <div class="eachlist" v-for="(i,index) in listarr" :key="index">
+      <router-link to="/detail" class="eachlist" v-for="(i,index) in listarr" :key="index">
         <img :src="i.verticalPic" alt="">
         <div class="listcontent">
           <p class="name" v-text="i.name"></p>
@@ -45,12 +45,12 @@
           <div class="choice" v-if="i.isSelectSeat">可选座</div>
           <p class="price">￥ {{i.priceStr}}</p>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
@@ -61,31 +61,31 @@ export default Vue.extend({
       whichtnum: 0,
       getlistok: true,
       sort: [
-        '全部分类',
-        '演唱会',
-        '话剧歌剧',
-        '音乐会',
-        '曲苑杂坛',
-        '舞蹈芭蕾',
-        '体育比赛',
-        '儿童亲子',
-        '展览休闲',
-        '二次元',
-        '旅游展览',
+        "全部分类",
+        "演唱会",
+        "话剧歌剧",
+        "音乐会",
+        "曲苑杂坛",
+        "舞蹈芭蕾",
+        "体育比赛",
+        "儿童亲子",
+        "展览休闲",
+        "二次元",
+        "旅游展览"
       ],
-      time: ['全部时间', '今天', '明天', '本周末', '一周内', '一月内'],
+      time: ["全部时间", "今天", "明天", "本周末", "一周内", "一月内"]
     };
   },
   methods: {
     async getlist() {
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1',
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1"
       );
       this.listarr = data.data.data.nearByCity;
     },
     async morelist() {
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1',
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1"
       );
       this.listarr = this.listarr.concat(data.data.data.nearByCity);
       this.getlistok = true;
@@ -105,7 +105,7 @@ export default Vue.extend({
     changetnum(i) {
       this.whichtnum = i;
       this.itup = false;
-    },
+    }
   },
   computed: {
     scrollernum() {
@@ -116,7 +116,7 @@ export default Vue.extend({
     },
     offtop() {
       return this.$store.state.offtop;
-    },
+    }
   },
   watch: {
     scrollernum() {
@@ -124,11 +124,11 @@ export default Vue.extend({
         this.getlistok = false;
         this.morelist();
       }
-    },
+    }
   },
   mounted() {
     this.getlist();
-  },
+  }
 });
 </script>
 
@@ -175,6 +175,7 @@ export default Vue.extend({
       margin: 0.48rem;
       margin-bottom: 0.96rem;
       display: flex;
+      color: #000;
       img {
         width: 2.4rem;
         height: 3.2rem;

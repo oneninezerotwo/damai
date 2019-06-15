@@ -8,22 +8,22 @@
       <i class="iconfont icon-sousuo"></i>
       <span>搜索明星、演出比赛、场馆</span>
     </router-link>
-    <span class="iconfont icon-wode"></span>
+    <router-link to="/mine" class="iconfont icon-wode"></router-link>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
-import '../assets/iconfont/iconfont.js';
+import Vue from "vue";
+import "../assets/iconfont/iconfont.js";
 export default Vue.extend({
   data() {
     return {
-      citylocation: '',
+      citylocation: ""
     };
   },
   mounted() {
     // this.$route.params.cityname
     this.citylocation = this.$store.state.locationcity;
-  },
+  }
 });
 </script>
 
@@ -76,6 +76,7 @@ export default Vue.extend({
   }
 }
 .icon-wode {
+  color: #000;
   font-size: 22px;
   margin: 0 0.48rem 0 0.32rem;
 }
