@@ -53,84 +53,14 @@
   </div>
 </template>
 
+
+<script>
+export default {
+  
+};
+</script>
+
 <style lang="less" scoped>
-.am-wingblank.am-wingblank-lg {
-  margin-left: 15px;
-  margin-right: 15px;
-  .am-list {
-    .am-list-body {
-      border-bottom: none;
-      border-top: none;
-      &:before {
-        content: "";
-        position: absolute;
-        background-color: #e7e7e7;
-        display: block;
-        z-index: 1;
-        top: 0;
-        right: auto;
-        bottom: auto;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        -webkit-transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        transform-origin: 50% 50%;
-        -webkit-transform: scaleY(0.5);
-        -ms-transform: scaleY(0.5);
-        transform: scaleY(0.5);
-      }
-      .am-list-item {
-        position: relative;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        padding-left: 15px;
-        min-height: 55px;
-        background-color: #fff;
-        vertical-align: middle;
-        overflow: hidden;
-        -webkit-transition: background-color 0.2s;
-        -o-transition: background-color 0.2s;
-        transition: background-color 0.2s;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-      }
-      .am-list-line {
-        border-bottom: none;
-        -webkit-box-align: center;
-        align-items: center;
-        padding-right: 0;
-        position: relative;
-        display: flex;
-        -webkit-box-flex: 1;
-        flex: 1;
-        -ms-flex-item-align: stretch;
-        align-self: stretch;
-        overflow: hidden;
-      }
-      .am-list-ripple {
-        position: absolute;
-        background: transparent;
-        overflow: hidden;
-        will-change: box-shadow, transform;
-        transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
-          background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-          color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),
-          background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-          color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-          -webkit-box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1);
-        outline: none;
-        cursor: pointer;
-        border-radius: 100%;
-        transform: scale(0);
-      }
-    }
-  }
-}
+@import "../../assets/common/register.css";
 </style>
 

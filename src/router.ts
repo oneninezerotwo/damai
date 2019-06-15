@@ -89,7 +89,13 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import('./views/login/login.vue'),
-      meta: { title: '我的' },
+      meta: { title: '登录' },
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('./views/register/register.vue'),
+      meta: { title: '注册' },
     },
   ],
 
