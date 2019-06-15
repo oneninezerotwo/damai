@@ -8,6 +8,8 @@ import './registerServiceWorker';
 import './js/rem.js';
 
 Vue.prototype.$axios = axios;
+Vue.use(require('vue-wechat-title'));
+
 Vue.config.productionTip = false;
 
 new Vue({

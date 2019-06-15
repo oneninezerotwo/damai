@@ -9,7 +9,8 @@ export default new Vuex.Store({
     scrollernum: 0,
     tofix: false,
     offtop: 0,
-    locationcity: '全国'
+    locationcity: '全国',
+    passportid: 0
   },
   mutations: {
 

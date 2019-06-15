@@ -8,7 +8,7 @@
     </div>
     <div class="wrapper" ref="wrapper">
       <ul class="content">
-        <li v-for="(i,index) in bigshotcontent" :key="index" class="listitem">
+        <router-link to="/activity" @click.native="setppid(i.artistId)" v-for="(i,index) in bigshotcontent" :key="index" class="listitem">
           <div class="top">
             <img :src="i.artPic" alt="">
             <div class="nbox">
@@ -21,7 +21,7 @@
             <p>最近{{i.performanceTotal}}场演出</p>
             <i class="iconfont icon-gengduo"></i>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
@@ -42,6 +42,9 @@ export default Vue.extend({
         "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/bigshot"
       );
       this.bigshotcontent = data.data.data.artistProjectList;
+    },
+    setppid(id) {
+      this.$store.state.passportid = id;
     }
   },
   created() {
@@ -93,6 +96,7 @@ export default Vue.extend({
     margin-left: 0.48rem;
     white-space: nowrap;
     .listitem {
+      color: #000;
       display: inline-block;
       width: 6.08rem;
       padding: 0 0.32rem;
