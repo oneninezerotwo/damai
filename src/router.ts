@@ -5,7 +5,7 @@ import Home from './views/Home.vue';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -17,6 +17,23 @@ export default new Router({
         name: 'recent',
         component: () => import('./components/RecentContent.vue'),
       }],
+        // name: 'recent',
+        // component: () => import('./components/RecentContent.vue')
+        components: {
+          recent: () => import('./components/RecentContent.vue'),
+          // moreshow: () => import('./components/MoreShowContent.vue')
+        },
+      
+      meta: { title: '首页' },
+    }, {
+      path: '/detail',
+      name: 'detail',
+      component: () => import('./views/detail/detail.vue'),
+    }, {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/Search.vue'),
+      meta: { title: '搜索' },
     },
    
     {
@@ -39,7 +56,32 @@ export default new Router({
         path: 'concert',
         name: 'concert',
         component: () => import('./components/children/Concert.vue'),
-      }],
+      },]
+    },
+      {
+      path: '/artistlist',
+      name: 'artistlist',
+      component: () => import('./views/Artistlist.vue'),
+      meta: { title: '大咖在大麦' },
+    },
+    {
+      path: '/location',
+      name: 'location',
+      component: () => import('./views/Location.vue'),
+      meta: { title: '定位' },
+    },
+    {
+      path: '/car',
+      name: 'car',
+      component: () => import('./views/Car.vue'),
+      meta: { title: '我的订单' },
+    },
+    {
+      path: '/activity',
+      name: 'activity',
+      component: () => import('./views/Activity.vue'),
+      meta: { title: '大咖' },
     },
   ],
+
 });

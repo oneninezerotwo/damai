@@ -1,20 +1,30 @@
 <template>
   <div class="homeheader">
-    <div class="location">
+    <router-link to="/location" class="location">
       <i class="iconfont icon-dingwei"></i>
-      <span>全国</span>
-    </div>
-    <div class="search">
+      <span v-text="citylocation">全国</span>
+    </router-link>
+    <router-link to="/search" class="search">
       <i class="iconfont icon-sousuo"></i>
       <span>搜索明星、演出比赛、场馆</span>
-    </div>
+    </router-link>
     <span class="iconfont icon-wode"></span>
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import "../assets/iconfont/iconfont.js";
-export default Vue.extend({});
+import Vue from 'vue';
+import '../assets/iconfont/iconfont.js';
+export default Vue.extend({
+  data() {
+    return {
+      citylocation: '',
+    };
+  },
+  mounted() {
+    // this.$route.params.cityname
+    this.citylocation = this.$store.state.locationcity;
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -38,6 +48,7 @@ export default Vue.extend({});
   font-size: 0.426667rem;
   line-height: 1.32rem;
   margin: 0 0.466667rem;
+  color: #000;
   .icon-dingwei {
     font-size: 30px;
     vertical-align: middle;

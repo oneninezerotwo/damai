@@ -2,18 +2,18 @@
   <div id="bigshot">
     <div class="title">
       <p>大咖在大麦</p>
-      <span>查看更多
+      <router-link to="/artistlist" class="span">查看更多
         <i class="iconfont icon-gengduo"></i>
-      </span>
+      </router-link>
     </div>
-    <div class="wrapper" ref="wrapper" @touchmove.prevent>
+    <div class="wrapper" ref="wrapper">
       <ul class="content">
-        <li v-for="(i,index) in bigshotcontent" :key="index" class="listitem">
+        <router-link to="/activity" @click.native="setppid(i.artistId)" v-for="(i,index) in bigshotcontent" :key="index" class="listitem">
           <div class="top">
             <img :src="i.artPic" alt="">
             <div class="nbox">
               <p v-text="i.artistName" class="name"></p>
-              <p class="fansnum">{{i.artFans}}万粉丝</p>
+              <p class="fansnum">{{(i.artFans/10000).toFixed(2)}}万粉丝</p>
             </div>
             <div class="follow">+关注</div>
           </div>
@@ -21,28 +21,31 @@
             <p>最近{{i.performanceTotal}}场演出</p>
             <i class="iconfont icon-gengduo"></i>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import BScroll from "better-scroll";
-import "../assets/iconfont/iconfont.js";
+import Vue from 'vue';
+import BScroll from 'better-scroll';
+import '../assets/iconfont/iconfont.js';
 export default Vue.extend({
   data() {
     return {
-      bigshotcontent: []
+      bigshotcontent: [],
     };
   },
   methods: {
     async getlist() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/bigshot"
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/bigshot',
       );
       this.bigshotcontent = data.data.data.artistProjectList;
-    }
+    },
+    setppid(id) {
+      this.$store.state.passportid = id;
+    },
   },
   created() {
     this.getlist();
@@ -51,10 +54,10 @@ export default Vue.extend({
         startX: 0,
         click: true,
         scrollX: true,
-        scrollY: false
+        scrollY: false,
       });
     });
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
@@ -71,7 +74,7 @@ export default Vue.extend({
       font-weight: 700;
       font-size: 0.453333rem;
     }
-    span {
+    .span {
       font-size: 0.32rem;
       color: #999;
       display: flex;
@@ -91,9 +94,9 @@ export default Vue.extend({
     width: 29rem;
     height: 3.4rem;
     margin-left: 0.48rem;
-    // overflow-x: scroll;
     white-space: nowrap;
     .listitem {
+      color: #000;
       display: inline-block;
       width: 6.08rem;
       padding: 0 0.32rem;

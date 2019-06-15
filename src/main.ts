@@ -8,6 +8,8 @@ import './assets/iconfont/iconfont.css';
 import './js/rem.js';
 import './assets/base.css';
 Vue.prototype.$axios = axios;
+Vue.use(require('vue-wechat-title'));
+
 Vue.config.productionTip = false;
 
 new Vue({
