@@ -51,9 +51,7 @@ export default new Vuex.Store({
       state,
     }) {
       axios.get('https://www.easy-mock.com/mock/5cf6534b7d25197d5b6790b8/example/www.tuijianliebiao.com').then((response) => {
-        console.log(666);
         const dm_for_list = response.data.data.projectInfo;
-        console.log(dm_for_list);
         if (dm_for_list) {
           commit('getDetailList', dm_for_list);
         }

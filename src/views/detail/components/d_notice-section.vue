@@ -21,7 +21,7 @@
         data-v-26981003
         data-v-3b3aea34
         class="info-item"
-        v-for="(item,index) in (dm_detail_info.detailViewComponentMap.item.staticData.noticeMatter.noticeList[0].ticketNoteList)"
+        v-for="(item,index) in dm_detail_info.detailViewComponentMap.item.staticData.noticeMatter.noticeList[0].ticketNoteList.slice(0, i)"
         :key="index"
       >
         <div data-v-26981003 class="item-title">
@@ -31,7 +31,7 @@
         <div data-v-26981003 class="item-text">{{item.content}}</div>
       </div>
       <div data-v-3b3aea34 class="read-more">
-        <div data-v-3b3aea34 class="text">全部7条观演须知</div>
+        <div data-v-3b3aea34 class="text" @click="changeShow">全部9条购票须知</div>
       </div>
     </div>
     <!---->
@@ -39,19 +39,29 @@
 </template>
 
 <script>
+import Vue from "vue";
 import { mapState, mapActions } from "vuex";
 export default {
+  data() {
+    return {
+      i: 3
+    };
+  },
   computed: {
     //映射数据
     ...mapState(["dm_detail_info"])
   },
   mounted() {
     //获取图片列表
+    // console.log(Array.isArray(this.dm_detail_info.detailViewComponentMap.item.staticData.noticeMatter.noticeList[0].ticketNoteList));
     console.log(this.dm_detail_info);
     this.getDetailInfo();
   },
   methods: {
-    ...mapActions(["getDetailInfo"])
+    ...mapActions(["getDetailInfo"]),
+    changeShow() {
+      this.i = 9;
+    }
   }
 };
 </script>
