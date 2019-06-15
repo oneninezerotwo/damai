@@ -10,21 +10,36 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'home', 
       component: Home,
       children: [{
         path: '/',
         name: 'recent',
-        component: () => import('./components/RecentContent.vue')
-      }]
+        component: () => import('./components/RecentContent.vue'),
+      }],
     },
+   
     {
-      path: '/about',
-      name: 'about',
+      path: '/lists',
+      name: 'lists',
+      // redirect: "/lists",
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      component: () => import(/* webpackChunkName: "about" */ './views/Lists.vue'),
+      children: [{
+        path: '/',
+        name: 'all',
+        component: () => import('./components/children/All.vue'),
+      },{
+        path: 'all',
+        name: 'all',
+        component: () => import('./components/children/All.vue'),
+      },{
+        path: 'concert',
+        name: 'concert',
+        component: () => import('./components/children/Concert.vue'),
+      }],
     },
   ],
 });
