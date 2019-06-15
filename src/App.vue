@@ -30,11 +30,11 @@ i {
 <script>
 export default {
   // 如果想看我写的详情页，把注释解开即可！！！！！！！！！！！
-  created () {
-    if (this.$router.path !== "/register") {
-      this.$router.replace("/register");
-    }
-  }
+  // created () {
+  //   if (this.$router.path !== "/register") {
+  //     this.$router.replace("/register");
+  //   }
+  // }
 };
 </script>
 
