@@ -13,14 +13,14 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
-      weekday: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],
+      weekday: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
       myddy: 0,
       today: 0,
-      changekey: 0
+      changekey: 0,
     };
   },
   created() {
@@ -33,7 +33,7 @@ export default Vue.extend({
     this.weekday.splice(this.myddy);
     this.weekday = dayarr.concat(this.weekday);
     this.weekday.splice(0, 2);
-    this.weekday.unshift("今天", "明天");
+    this.weekday.unshift('今天', '明天');
   },
   methods: {
     changeday(i) {
@@ -49,8 +49,8 @@ export default Vue.extend({
           this.changekey++;
         }
       }
-    }
-  }
+    },
+  },
 });
 </script>
 

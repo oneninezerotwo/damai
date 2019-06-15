@@ -27,25 +27,25 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import BScroll from "better-scroll";
-import "../assets/iconfont/iconfont.js";
+import Vue from 'vue';
+import BScroll from 'better-scroll';
+import '../assets/iconfont/iconfont.js';
 export default Vue.extend({
   data() {
     return {
-      bigshotcontent: []
+      bigshotcontent: [],
     };
   },
   methods: {
     async getlist() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/bigshot"
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/bigshot',
       );
       this.bigshotcontent = data.data.data.artistProjectList;
     },
     setppid(id) {
       this.$store.state.passportid = id;
-    }
+    },
   },
   created() {
     this.getlist();
@@ -54,10 +54,10 @@ export default Vue.extend({
         startX: 0,
         click: true,
         scrollX: true,
-        scrollY: false
+        scrollY: false,
       });
     });
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>

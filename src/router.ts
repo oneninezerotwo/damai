@@ -19,9 +19,9 @@ export default new Router({
         components: {
           recent: () => import('./components/RecentContent.vue'),
           // moreshow: () => import('./components/MoreShowContent.vue')
-        }
+        },
       }],
-      meta: { title: 'Ê×Ò³' },
+      meta: { title: 'é¦–é¡µ' },
     }, {
       path: '/detail',
       name: 'detail',
@@ -30,42 +30,31 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: () => import('./views/Search.vue'),
-      meta: { title: 'ËÑË÷' },
+      meta: { title: 'æœç´¢' },
     },
     {
       path: '/artistlist',
       name: 'artistlist',
       component: () => import('./views/Artistlist.vue'),
-      meta: { title: '´ó¿§ÔÚ´óÂó' },
+      meta: { title: 'å¤§å’–åœ¨å¤§éº¦' },
     },
     {
       path: '/location',
       name: 'location',
       component: () => import('./views/Location.vue'),
-      meta: { title: '¶¨Î»' },
+      meta: { title: 'å®šä½' },
     },
     {
       path: '/car',
       name: 'car',
       component: () => import('./views/Car.vue'),
-      meta: { title: 'ÎÒµÄ¶©µ¥' },
-<<<<<<< .mine
+      meta: { title: 'æˆ‘çš„è®¢å•' },
     },
     {
       path: '/activity',
       name: 'activity',
       component: () => import('./views/Activity.vue'),
-      meta: { title: '´ó¿§' },
+      meta: { title: 'å¤§å’–' },
     },
   ],
-=======
-    }
-  ]
-
-
-
-
-
-
->>>>>>> .theirs
 });
