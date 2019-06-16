@@ -121,7 +121,7 @@ export default Vue.extend({
   overflow: hidden;
 }
 .project1{
-  height:8000px;
+  height:2000px;
 }
 .wrapper {
   // padding-top:110px;

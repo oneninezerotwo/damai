@@ -249,7 +249,7 @@ export default Vue.extend({
                 }
                 //	console.log(html);
                 // return this.yanzheng; //返回值
-                console.log(this.yanzheng)
+                console.log(this.yanzheng+'<br/>')
             },
             timer() {
               var reg=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/;

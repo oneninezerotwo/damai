@@ -62,12 +62,12 @@ export default Vue.extend({
       });
     this.createds();
     // this.scroll = new Bscroll(this.$refs.wrapper);
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        console.log("到底部了");
-      }
+    // window.addEventListener("scroll", () => {
+    //   if (window.scrollY > 200) {
+    //     console.log("到底部了");
+    //   }
       
-    });
+    // });
     
   },
   // created(){
@@ -90,7 +90,7 @@ export default Vue.extend({
       this.$axios(
         "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1"
       ).then(res => {
-        console.log(res);
+        // console.log(res);
 
         this.projectInfo = res.data.data.projectInfo;
         //  this.projectInfo = this.projectInfo.concat(this.projectInfo);
