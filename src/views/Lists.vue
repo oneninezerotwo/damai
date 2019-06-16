@@ -4,7 +4,7 @@
       <div class="ding_cao" :class="navBarFixed == true ? 'navBarWrap' :''">
         <div class="ding_top">
           <ul class="ding_top_list">
-            <router-link v-for="(k,index) in ding" :key="index" :to="ding[index].path" v-text="ding[index].name"></router-link>
+            <router-link v-for="(k,index) in ding" :key="index" :to="ding[index].path" v-text="ding[index].name" @click.native="tabss()"></router-link>
           </ul>
         </div>
         <div class="ding_bottom">
@@ -316,28 +316,31 @@
           </div>
         </div>
 
-        <div v-show="chulaiba1 && chulaiba11">
-          <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_location">
-            <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_title">定位城市</div>
-            <div data-v-ce3e2f64 data-v-6ac40e55 class="select_city_caonima">
-              <span data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="select-city_item">定位失败</span>
-            </div>
-          </div>
-          <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_hot">
-            <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_title">热门城市/区域</div>
-            <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_hot_list">
-              <span data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="selected select-city_item" v-for="(a,index) in citys" :key="index" v-text="a.name" v-on:click="dianji()"></span>
-            </div>
-          </div>
-          <div class="select-city_list">
+        <div v-show="chulaiba1 && chulaiba11" class="cities" ref="wrapper" >
+          <div class="content cities11">
+              <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_location">
+                <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_title">定位城市</div>
+                <div data-v-ce3e2f64 data-v-6ac40e55 class="select_city_caonima">
+                  <span data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="select-city_item">定位失败</span>
+                </div>
+              </div>
+              <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_hot">
+                <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_title">热门城市/区域</div>
+                <div data-v-ce3e2f64 data-v-6ac40e55 class="select-city_hot_list">
+                  <router-link to="/lists/all" data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="selected select-city_item" v-for="(a,index) in citys" :key="index" v-text="a.name"  @click.native="tabss();tohome(a.name)"></router-link >
+                </div>
+              </div>
+              <div class="select-city_list">
 
-            <div v-for="(q,ids) in dingwei" :key="ids" :style="{display:(ids==0 ? 'none':'block')}">
-              <div class="select-city_title" v-text="q.prefix"></div>
-              <ul data-v-ce3e2f64 data-v-6ac40e55 class="select-city_list_citys">
-                <li data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="select-city_list_item" v-for="(w,idd) in dingwei[ids].cities" :key="idd" v-text="w.name" v-on:click="dianji()"></li>
-              </ul>
-            </div>
+                <div v-for="(q,ids) in dingwei" :key="ids" :style="{display:(ids==0 ? 'none':'block')}">
+                  <div class="select-city_title" v-text="q.prefix"></div>
+                  <ul data-v-ce3e2f64 data-v-6ac40e55 class="select-city_list_citys">
+                    <router-link  to="/lists/concert" data-v-ce3e2f64 data-v-6ac40e55 data-spm="dcity" class="select-city_list_item" v-for="(w,idd) in dingwei[ids].cities" :key="idd" v-text="w.name"  @click.native="tabss();tohome(w.name)"></router-link>
+                  </ul>
+                </div>
+              </div>
           </div>
+          
         </div>
 
       </div>
@@ -348,7 +351,9 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-//  import Bscroll from 'better-scroll'
+import vuescroll from 'vue-scroll'
+Vue.use(vuescroll)
+ import BScroll from 'better-scroll'
 export default Vue.extend({
   data() {
     return {
@@ -360,6 +365,7 @@ export default Vue.extend({
       chulaiba11: true,
       chulaiba22: true,
       citys: [],
+      cityname: '',
       sort: [
         {
           title: "全国",
@@ -383,24 +389,44 @@ export default Vue.extend({
     };
   },
   created() {
-    // this.$nextTick(() => {
-    //     this.scroll = new Bscroll(this.$refs.wrapper, {})
-    //   })
+ 
   },
   mounted() {
     this.created();
     window.addEventListener("scroll", this.hidemenu);
     this.positions();
+    this.$nextTick(() => {
+        //$refs绑定元素
+        if(!this.scroll){
+            this.scroll = new BScroll(this.$refs.wrapper, {
+            //开启点击事件 默认为false
+            click:true
+        })
+        // console.log(this.scroll)
+        }else if(!this.$refs.wrapper){
+            return
+        }
+        else{
+            this.scroll.refresh()
+        }
+      });
   },
-  // created(){
-  //     this.createds();
-  // },
-
+ 
   computed: {},
   methods: {
+    tohome(ru) {
+      this.cityname = ru;
+      // this.$router.push({
+      //   name: 'all', 
+      //   params: {
+      //     cityname: this.cityname,
+      //   },
+      // });
+      this.$store.state.locationcity = ru;
+      this.sort[0].title = this.cityname;
+    },
     dianji(e) {
-      // const re= document.querySelector("select-city_hot_list");
-      console.log(e.target);
+      
     },
 
     async created() {
@@ -439,6 +465,7 @@ export default Vue.extend({
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
+        
       //当滚动超过50时，实现吸顶效果（导航高度为50）
       if (scrollTop > 0) {
         this.navBarFixed = true;
@@ -462,11 +489,39 @@ export default Vue.extend({
         this.chulaiba = !this.chulaiba;
         this.chulaiba1 = false;
       }
+      else if (ids == 2) {
+        this.chulaiba = !this.chulaiba;
+        this.chulaiba1 = false;
+      }
+      else if (ids == 3) {
+        this.chulaiba = !this.chulaiba;
+        this.chulaiba1 = false;
+      }
+    },
+    tabss(){
+      this.chulaiba = false;
+      this.chulaiba1 = false;
+      console.log(111)
     }
   }
 });
 </script>
 <style lang="scss" scoped>
+.cities{
+  // height: 440px;
+  width: 100%;
+  position: absolute;
+  top:55px;
+  bottom:45px;
+overflow: hidden;
+  // overflow: hidden;
+  height: 640px;
+}
+.cities11{
+  // height: 100%;
+  // min-height: 600px;
+  height: 8000px;
+}
 .select-factor[data-v-58766511] {
   padding-bottom: 0.4rem;
   .select-factor_wrap[data-v-58766511] {
@@ -581,7 +636,9 @@ export default Vue.extend({
     padding: 0 0.48rem;
   }
 }
-
+.ding_t{
+  height: 120px;
+}
 a:hover {
   text-decoration: none;
 }
@@ -589,7 +646,7 @@ a:hover {
   border-bottom: 2px solid #ff1268;
 }
 .navBarWrap {
-  position: relative;
+  position: fixed;
   top: 0;
   z-index: 1002;
   width: 100%;
@@ -607,7 +664,7 @@ a:hover {
 }
 .home-factor_select {
   position: fixed;
-  top: 43px;
+  top: 57px;
   width: 100%;
   max-height: 100%;
   padding-top: 1.38667rem;
@@ -749,6 +806,9 @@ a:hover {
   -webkit-flex-flow: wrap;
   flex-flow: wrap;
   background: #fff;
+  a{
+    color:#3d3d3d;
+  }
   .select-city_hot_list .selected[data-v-ce3e2f64] {
     border: 1px solid #ff1268;
   }
@@ -779,6 +839,13 @@ a:hover {
   li {
     overflow: hidden;
     background: #fff;
+  }
+  a{
+     overflow: hidden;
+    background: #fff;
+    display: block;
+    text-decoration: none;
+    color:#3d3d3d;
   }
 }
 .select-city_list_item[data-v-ce3e2f64] {
