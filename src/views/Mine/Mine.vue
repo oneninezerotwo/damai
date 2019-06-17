@@ -114,7 +114,7 @@
           </div>
         </div>
       </div>
-      <div class="my-login-out" @click="removecookie()">退出登录</div>
+      <div class="my-login-out" @click="removecookie()" v-if="islogined">退出登录</div>
       <div class="about-section">
         <div class="about-link">关于大麦</div>
         <div class="about-line">|</div>

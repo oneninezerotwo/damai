@@ -20,8 +20,8 @@ import BigShot from "@/components/BigShot.vue";
 import Recent from "@/components/Recent.vue";
 import MoreShow from "@/components/MoreShow.vue";
 
-import VueScroller from "vue-scroller";
-Vue.use(VueScroller);
+// import VueScroller from "vue-scroller";
+// Vue.use(VueScroller);
 
 @Component({
   mounted() {
