@@ -183,6 +183,12 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
+
+
 <style lang="less" scoped>
 @import "../../assets/common/login.css";
 @import "../../assets/common/damai.css";

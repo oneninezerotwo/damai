@@ -16,14 +16,21 @@
           <div class="am-list-item am-input-item am-list-item-middle">
             <div class="am-list-line">
               <div class="am-input-control">
-                <input type="tel" value placeholder="请输入手机号">
+                <input type="tel" ref="phone" placeholder="请输入手机号" @blur="regExpPhone($event)">
               </div>
             </div>
           </div>
           <div class="am-list-item am-input-item am-list-item-middle">
             <div class="am-list-line">
               <div class="am-input-control">
-                <input type="text" pattern="[0-9]*" value maxlength="4" placeholder="请输入验证码">
+                <input
+                  type="text"
+                  pattern="[0-9]*"
+                  value
+                  maxlength="4"
+                  placeholder="请输入验证码"
+                  @blur="RegExpYzm($event)"
+                >
               </div>
               <div class="am-input-extra">
                 <a href="javascript:;" class="send-btn">获取验证码</a>
@@ -34,8 +41,13 @@
       </div>
       <div class="msg-tip"></div>
       <div class="am-whitespace am-whitespace-lg"></div>
-      <a role="button" class="am-button am-button-primary am-button-disabled" aria-disabled="true">
-        <span>同意协议并注册</span>
+      <a
+        role="button"
+        class="am-button am-button-primary"
+        :class="{'am-button-disabled':okClick}"
+        aria-disabled="true"
+      >
+        <span @click="go_to_login">同意协议并注册</span>
       </a>
       <div class="am-whitespace am-whitespace-md"></div>
       <div class="agreement">
@@ -55,8 +67,59 @@
 
 
 <script>
+// import Vue from 'vue'
 export default {
-  
+  data() {
+    return {
+      customerPhone: [],
+      boolPhone: false,
+      boolYzm: false,
+      okClick: true
+    };
+  },
+  updated() {},
+  mounted() {
+    console.log(this.customerPhone);
+  },
+  methods: {
+    regExpPhone(ev) {
+      // 获取输入框中的值,如果都通过正则，则把账号存到vuex
+      var regu = /^1[3456789]\d{9}$/;
+      var re = new RegExp(regu);
+      let s = ev.target.value;
+      if (re.test(s)) {
+        this.boolPhone = true;
+      } else {
+        this.boolPhone = false;
+      }
+      console.log(this.boolPhone);
+      this.submit();
+    },
+
+    RegExpYzm(ev) {
+      var reg = /^\d{4}$/;
+      var re = new RegExp(reg);
+      let y = ev.target.value;
+      if (re.test(y)) {
+        this.boolYzm = true;
+      } else {
+        this.boolYzm = false;
+      }
+      console.log(this.boolYzm);
+      this.submit();
+    },
+    submit() {
+      if (this.boolPhone && this.boolYzm) {
+        this.okClick = false;
+      }
+    },
+    // 如果两个验证都通过了，则把手机号码存到vuex
+    go_to_login() {
+      console.log(this.$refs.phone.value);
+      this.$store.state.phoneNumber.push(18565481760);
+      this.$router.push({ name: "login" });
+    }
+  }
 };
 </script>
 
