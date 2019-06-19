@@ -1,56 +1,83 @@
 <template>
   <div id="moreshow">
-    <div class="title" :class="{'towithbo':tofix}">
+    <div class="title" :class="{ towithbo: tofix }">
       <p>更多演出</p>
     </div>
-    <div :class="{'tofix':tofix}">
+    <div :class="{ tofix: tofix }">
       <ul class="nav" ref="nav">
-        <li :class="{'act':isup}" @click="downsshow">{{sort[whichsnum]}}
-          <i class="iconfont " :class="{
-            'icon-shangla-tianchong':isup,
-            'icon-xiala':!isup
-          }"></i>
+        <li :class="{ act: isup }" @click="downsshow">
+          {{ sort[whichsnum] }}
+          <i
+            class="iconfont "
+            :class="{
+              'icon-shangla-tianchong': isup,
+              'icon-xiala': !isup
+            }"
+          ></i>
         </li>
-        <li :class="{'act':itup}" @click="downtshow">{{time[whichtnum]}}
-          <i class="iconfont" :class="{
-            'icon-shangla-tianchong':itup,
-            'icon-xiala':!itup
-          }"></i>
+        <li :class="{ act: itup }" @click="downtshow">
+          {{ time[whichtnum] }}
+          <i
+            class="iconfont"
+            :class="{
+              'icon-shangla-tianchong': itup,
+              'icon-xiala': !itup
+            }"
+          ></i>
         </li>
         <li>推荐排序</li>
         <li>距离最近</li>
       </ul>
     </div>
-    <div class="down" :class="{'downon':isup}">
+    <div class="down" :class="{ downon: isup }">
       <div class="curtain">
         <ul>
-          <li v-for="(j,index) in sort" :key="index" v-text="j" @click="changesnum(index)" :class="{'act':whichsnum===index}"></li>
+          <li
+            v-for="(j, index) in sort"
+            :key="index"
+            v-text="j"
+            @click="changesnum(index)"
+            :class="{ act: whichsnum === index }"
+          ></li>
         </ul>
       </div>
     </div>
-    <div class="down" :class="{'downon':itup}">
+    <div class="down" :class="{ downon: itup }">
       <div class="curtain">
         <ul>
-          <li v-for="(j,index) in time" :key="index" v-text="j" @click="changetnum(index)" :class="{'act':whichtnum===index}"></li>
+          <li
+            v-for="(j, index) in time"
+            :key="index"
+            v-text="j"
+            @click="changetnum(index)"
+            :class="{ act: whichtnum === index }"
+          ></li>
         </ul>
       </div>
     </div>
 
-    <div class="listbox">
-      <router-link to="/detail" class="eachlist" v-for="(i,index) in listarr" :key="index">
-        <img :src="i.verticalPic" alt="">
+    <div class="listbox" ref="listbox" :class="{ uppadding: tofix }">
+      <router-link
+        to="/detail"
+        class="eachlist"
+        v-for="(i, index) in listarr"
+        :key="index"
+      >
+        <img :src="i.verticalPic" alt="" />
         <div class="listcontent">
           <p class="name" v-text="i.name"></p>
-          <p class="time">{{i.logicAddress}} / {{i.showTime}} / {{i.venueName}}</p>
+          <p class="time">
+            {{ i.logicAddress }} / {{ i.showTime }} / {{ i.venueName }}
+          </p>
           <div class="choice" v-if="i.isSelectSeat">可选座</div>
-          <p class="price">￥ {{i.priceStr}}</p>
+          <p class="price">￥ {{ i.priceStr }}</p>
         </div>
       </router-link>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue';
+import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
@@ -61,31 +88,31 @@ export default Vue.extend({
       whichtnum: 0,
       getlistok: true,
       sort: [
-        '全部分类',
-        '演唱会',
-        '话剧歌剧',
-        '音乐会',
-        '曲苑杂坛',
-        '舞蹈芭蕾',
-        '体育比赛',
-        '儿童亲子',
-        '展览休闲',
-        '二次元',
-        '旅游展览',
+        "全部分类",
+        "演唱会",
+        "话剧歌剧",
+        "音乐会",
+        "曲苑杂坛",
+        "舞蹈芭蕾",
+        "体育比赛",
+        "儿童亲子",
+        "展览休闲",
+        "二次元",
+        "旅游展览"
       ],
-      time: ['全部时间', '今天', '明天', '本周末', '一周内', '一月内'],
+      time: ["全部时间", "今天", "明天", "本周末", "一周内", "一月内"]
     };
   },
   methods: {
     async getlist() {
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1',
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1"
       );
       this.listarr = data.data.data.nearByCity;
     },
     async morelist() {
       const data = await this.$axios(
-        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1',
+        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1"
       );
       this.listarr = this.listarr.concat(data.data.data.nearByCity);
       this.getlistok = true;
@@ -93,10 +120,12 @@ export default Vue.extend({
     downsshow() {
       this.isup = !this.isup;
       this.itup = false;
+      this.tofixed();
     },
     downtshow() {
       this.itup = !this.itup;
       this.isup = false;
+      this.tofixed();
     },
     changesnum(i) {
       this.whichsnum = i;
@@ -106,6 +135,10 @@ export default Vue.extend({
       this.whichtnum = i;
       this.itup = false;
     },
+    tofixed() {
+      console.log(this.$refs.listbox.offsetTop);
+      window.scrollTo(0, this.$refs.listbox.offsetTop - 80);
+    }
   },
   computed: {
     scrollernum() {
@@ -116,7 +149,7 @@ export default Vue.extend({
     },
     offtop() {
       return this.$store.state.offtop;
-    },
+    }
   },
   watch: {
     scrollernum() {
@@ -124,11 +157,11 @@ export default Vue.extend({
         this.getlistok = false;
         this.morelist();
       }
-    },
+    }
   },
   mounted() {
     this.getlist();
-  },
+  }
 });
 </script>
 
@@ -271,6 +304,9 @@ export default Vue.extend({
   }
   .act {
     color: #ff1268;
+  }
+  .uppadding {
+    padding-top: 1rem;
   }
 }
 </style>
