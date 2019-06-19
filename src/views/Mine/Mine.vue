@@ -1,11 +1,17 @@
 <template>
   <div class="my">
     <router-link to="/login" class="my-hd" v-if="!islogined">
-      <div class="my-hd__photo" style="background-image: url(&quot;//gw.alicdn.com/tfs/TB1o4Bodr_I8KJjy1XaXXbsxpXa-150-150.png&quot;);"></div>
-      <p class="my-hd__name">登录/注册</p>
+      <div
+        class="my-hd__photo"
+        style="background-image: url(&quot;//gw.alicdn.com/tfs/TB1o4Bodr_I8KJjy1XaXXbsxpXa-150-150.png&quot;);"
+      ></div>
+      <p class="my-hd__name" ref="phone">登录/注册</p>
     </router-link>
     <div class="my-hd" v-if="islogined">
-      <div class="my-hd__photo" style="background-image: url(&quot;//perico.damai.cn/userheadphotos/671293/134258687.jpg&quot;);"></div>
+      <div
+        class="my-hd__photo"
+        style="background-image: url(&quot;//perico.damai.cn/userheadphotos/671293/134258687.jpg&quot;);"
+      ></div>
       <p class="my-hd__name" v-text="username"></p>
     </div>
     <!---->
@@ -155,11 +161,23 @@ export default Vue.extend({
       //退出登录
       this.setcookie("", -1);
       this.$router.go(0);
+    },
+    renderName() {
+      let phone = localStorage.getItem("phone");
+      console.log(phone);
+      if (phone) {
+        this.$refs.phone.innerHTML = phone;
+      } else {
+        this.$refs.phone.innerHTML = "登录/注册";
+      }
     }
   },
 
   created() {
     this.checklogin();
+  },
+  mounted() {
+    this.renderName();
   }
 });
 </script>

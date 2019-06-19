@@ -46,8 +46,9 @@
         class="am-button am-button-primary"
         :class="{'am-button-disabled':okClick}"
         aria-disabled="true"
+        ref="go_to"
       >
-        <span @click="go_to_login">同意协议并注册</span>
+        <span @click="resgisterOk">同意协议并注册</span>
       </a>
       <div class="am-whitespace am-whitespace-md"></div>
       <div class="agreement">
@@ -67,7 +68,7 @@
 
 
 <script>
-// import Vue from 'vue'
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -77,9 +78,11 @@ export default {
       okClick: true
     };
   },
-  updated() {},
   mounted() {
     console.log(this.customerPhone);
+  },
+  computed: {
+    // 如果两个验证都通过了，则把手机号码存到vuex
   },
   methods: {
     regExpPhone(ev) {
@@ -95,7 +98,6 @@ export default {
       console.log(this.boolPhone);
       this.submit();
     },
-
     RegExpYzm(ev) {
       var reg = /^\d{4}$/;
       var re = new RegExp(reg);
@@ -113,11 +115,11 @@ export default {
         this.okClick = false;
       }
     },
-    // 如果两个验证都通过了，则把手机号码存到vuex
-    go_to_login() {
-      console.log(this.$refs.phone.value);
-      this.$store.state.phoneNumber.push(18565481760);
-      this.$router.push({ name: "login" });
+    resgisterOk() {
+      if (!this.okClick) {
+        localStorage.setItem("phone", this.$refs.phone.value); //保存数据
+        this.$router.push({ name: "mine" });
+      }
     }
   }
 };

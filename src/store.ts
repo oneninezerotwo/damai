@@ -32,7 +32,6 @@ export default new Vuex.Store({
     dm_detail_info: (state) => state.dm_detail_info,
     dm_detail_list: (state) => state.dm_detail_list,
     showCart: (state) => state.showCart,
-
   },
   // 异步操作
   actions: {
@@ -68,5 +67,6 @@ export default new Vuex.Store({
         commit('isFixedCart', false);
       }
     },
+
   },
 });
