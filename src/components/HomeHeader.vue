@@ -12,18 +12,18 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import "../assets/iconfont/iconfont.js";
+import Vue from 'vue';
+import '../assets/iconfont/iconfont.js';
 export default Vue.extend({
   data() {
     return {
-      citylocation: ""
+      citylocation: '',
     };
   },
   mounted() {
     // this.$route.params.cityname
     this.citylocation = this.$store.state.locationcity;
-  }
+  },
 });
 </script>
 

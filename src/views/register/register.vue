@@ -8,7 +8,10 @@
               <div class="am-list-line">
                 <div class="am-list-content">国家地区</div>
                 <div class="am-list-extra">+86</div>
-                <div class="am-list-arrow am-list-arrow-horizontal" aria-hidden="true"></div>
+                <div
+                  class="am-list-arrow am-list-arrow-horizontal"
+                  aria-hidden="true"
+                ></div>
               </div>
               <div class="am-list-ripple" style="display: none;"></div>
             </div>
@@ -16,7 +19,12 @@
           <div class="am-list-item am-input-item am-list-item-middle">
             <div class="am-list-line">
               <div class="am-input-control">
-                <input type="tel" ref="phone" placeholder="请输入手机号" @blur="regExpPhone($event)">
+                <input
+                  type="tel"
+                  ref="phone"
+                  placeholder="请输入手机号"
+                  @blur="regExpPhone($event)"
+                />
               </div>
             </div>
           </div>
@@ -30,7 +38,7 @@
                   maxlength="4"
                   placeholder="请输入验证码"
                   @blur="RegExpYzm($event)"
-                >
+                />
               </div>
               <div class="am-input-extra">
                 <a href="javascript:;" class="send-btn">获取验证码</a>
@@ -44,7 +52,7 @@
       <a
         role="button"
         class="am-button am-button-primary"
-        :class="{'am-button-disabled':okClick}"
+        :class="{ 'am-button-disabled': okClick }"
         aria-disabled="true"
         ref="go_to"
       >
@@ -54,12 +62,17 @@
       <div class="agreement">
         <span>
           我已阅读接受
-          <a href="https://sale.damai.cn/contents/4677/13574.html" target="_blank">《大麦网会员服务协议》</a>及
+          <a
+            href="https://sale.damai.cn/contents/4677/13574.html"
+            target="_blank"
+            >《大麦网会员服务协议》</a
+          >及
           <a
             href="https://sale.damai.cn/contents/4677/13572.html"
             target="_blank"
             data-spm-anchor-id="0.7477816.0.0"
-          >《隐私专项条款》</a>并同意自动注册成为会员
+            >《隐私专项条款》</a
+          >并同意自动注册成为会员
         </span>
       </div>
     </div>
@@ -70,7 +83,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 export default {
-  data() {
+  data () {
     return {
       customerPhone: [],
       boolPhone: false,
@@ -78,14 +91,14 @@ export default {
       okClick: true
     };
   },
-  mounted() {
+  mounted () {
     console.log(this.customerPhone);
   },
   computed: {
     // 如果两个验证都通过了，则把手机号码存到vuex
   },
   methods: {
-    regExpPhone(ev) {
+    regExpPhone (ev) {
       // 获取输入框中的值,如果都通过正则，则把账号存到vuex
       var regu = /^1[3456789]\d{9}$/;
       var re = new RegExp(regu);
@@ -98,7 +111,7 @@ export default {
       console.log(this.boolPhone);
       this.submit();
     },
-    RegExpYzm(ev) {
+    RegExpYzm (ev) {
       var reg = /^\d{4}$/;
       var re = new RegExp(reg);
       let y = ev.target.value;
@@ -110,14 +123,17 @@ export default {
       console.log(this.boolYzm);
       this.submit();
     },
-    submit() {
+    submit () {
       if (this.boolPhone && this.boolYzm) {
         this.okClick = false;
       }
     },
-    resgisterOk() {
+    resgisterOk () {
       if (!this.okClick) {
         localStorage.setItem("phone", this.$refs.phone.value); //保存数据
+        let now = new Date();
+        now.setDate(now.getDate() + 7);
+        document.cookie = "uname=" + this.$refs.phone.value + ";expires=" + now + ";path=/";
         this.$router.push({ name: "mine" });
       }
     }

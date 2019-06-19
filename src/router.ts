@@ -53,7 +53,7 @@ export default new Router({
         path: 'concert',
         name: 'concert',
         component: () => import('./components/children/Concert.vue'),
-      },]
+      }],
     },
     {
       path: '/artistlist',

@@ -5,7 +5,9 @@
       <div data-v-d0cc7b08 class="button-outline">
         <div data-v-d0cc7b08 class="left">
           <i data-v-d0cc7b08 class="left__icon2 icon-home"></i>
-          <p data-v-d0cc7b08 class="left__msg">大麦首页</p>
+          <router-link to="/" data-v-d0cc7b08 class="left__msg"
+            >大麦首页</router-link
+          >
         </div>
         <div data-v-d0cc7b08 class="left">
           <i data-v-d0cc7b08 class="left__icon left__icon-disfavor"></i>
@@ -16,8 +18,15 @@
           <div data-v-3be445e2 data-v-d0cc7b08 class="button button-primary">
             <div data-v-d0cc7b08 data-v-3be445e2 class="buy">
               <!---->
-              <div data-v-d0cc7b08 data-v-3be445e2 class="buy__button" @click="isFixedCart">
-                <p data-v-d0cc7b08 data-v-3be445e2 class="buy__button__text">选座购买</p>
+              <div
+                data-v-d0cc7b08
+                data-v-3be445e2
+                class="buy__button"
+                @click="isFixedCart"
+              >
+                <p data-v-d0cc7b08 data-v-3be445e2 class="buy__button__text">
+                  选座购买
+                </p>
                 <!---->
               </div>
             </div>
@@ -32,12 +41,18 @@
       <div data-v-d0cc7b08 class="dm-dialog point-auth" style="display: none;">
         <div class="dm-dialog__box">
           <!---->
-          <div class="dm-dialog__bd">由于未获得您的支付宝积分授权，本次交易无法享受支付宝积分优惠。</div>
+          <div class="dm-dialog__bd">
+            由于未获得您的支付宝积分授权，本次交易无法享受支付宝积分优惠。
+          </div>
           <div class="dm-dialog__ft">
             <!---->
             <div class="dm-dialog__confirm">
-              <span class="dm-dialog__ft__item dm-dialog__confirm_cancel">确定</span>
-              <span class="dm-dialog__ft__item dm-dialog__confirm_true">重新授权</span>
+              <span class="dm-dialog__ft__item dm-dialog__confirm_cancel"
+                >确定</span
+              >
+              <span class="dm-dialog__ft__item dm-dialog__confirm_true"
+                >重新授权</span
+              >
             </div>
           </div>
         </div>
@@ -45,7 +60,9 @@
       <div data-v-d0cc7b08 class="dm-dialog point-auth" style="display: none;">
         <div class="dm-dialog__box">
           <!---->
-          <div class="dm-dialog__bd">抱歉，您当前剩余支付宝积分或等级暂不满足享受积分优惠的条件。</div>
+          <div class="dm-dialog__bd">
+            抱歉，您当前剩余支付宝积分或等级暂不满足享受积分优惠的条件。
+          </div>
           <div class="dm-dialog__ft">
             <span class="dm-dialog__ft__item">知道了</span>
             <!---->

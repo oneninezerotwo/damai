@@ -350,10 +350,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 // import vuescroll from 'vue-scroll'
 // Vue.use(vuescroll)
-import BScroll from "better-scroll";
+import BScroll from 'better-scroll';
 export default Vue.extend({
   data() {
     return {
@@ -365,40 +365,40 @@ export default Vue.extend({
       chulaiba11: true,
       chulaiba22: true,
       citys: [],
-      cityname: "",
+      cityname: '',
       sort: [
         {
-          title: "全国",
-          show: true
+          title: '全国',
+          show: true,
         },
         {
-          title: "全部时间",
-          show: false
+          title: '全部时间',
+          show: false,
         },
         {
-          title: "推荐排序",
-          show: false
+          title: '推荐排序',
+          show: false,
         },
         {
-          title: "距离最近",
-          show: false
-        }
+          title: '距离最近',
+          show: false,
+        },
       ],
-      rout: [""],
-      navBarFixed: true
+      rout: [''],
+      navBarFixed: true,
     };
   },
   created() {},
   mounted() {
     this.created();
-    window.addEventListener("scroll", this.hidemenu);
+    window.addEventListener('scroll', this.hidemenu);
     this.positions();
     this.$nextTick(() => {
-      //$refs绑定元素
+      // $refs绑定元素
       if (!this.scroll) {
         this.scroll = new BScroll(this.$refs.wrapper, {
-          //开启点击事件 默认为false
-          click: true
+          // 开启点击事件 默认为false
+          click: true,
         });
         // console.log(this.scroll)
       } else if (!this.$refs.wrapper) {
@@ -426,7 +426,7 @@ export default Vue.extend({
 
     async created() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai"
+        'https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai',
       );
       //   console.log(data);
       this.ding = data.data.data.ding;
@@ -435,9 +435,9 @@ export default Vue.extend({
       //   console.log(this.ding.name);
     },
     async positions() {
-      "";
+      '';
       const data1 = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/position_damai"
+        'https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/position_damai',
       );
       // console.log(data1);
       this.dingwei = data1.data.data.areas;
@@ -445,7 +445,7 @@ export default Vue.extend({
       // this.menuss[0].imgpath = require(this.menuss[0].imgpath);
       // console.log(this.dingwei[0].prefix);
     },
-    toggle: function(index) {
+    toggle(index) {
       this.actives = index;
       // for (var i = 0; i < this.ding.length; i++) {
       //   this.ding[i].show = false;
@@ -456,20 +456,20 @@ export default Vue.extend({
       console.log(this.actives);
     },
     hidemenu() {
-      let scrollTop =
+      const scrollTop =
         window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop;
 
-      //当滚动超过50时，实现吸顶效果（导航高度为50）
+      // 当滚动超过50时，实现吸顶效果（导航高度为50）
       if (scrollTop > 0) {
         this.navBarFixed = true;
       } else {
         this.navBarFixed = false;
       }
     },
-    tab: function(ids) {
-      for (var i = 0; i < this.sort.length; i++) {
+    tab(ids) {
+      for (let i = 0; i < this.sort.length; i++) {
         this.sort[i].show = false;
         if (i == ids) {
           this.sort[ids].show = true;
@@ -495,8 +495,8 @@ export default Vue.extend({
       this.chulaiba = false;
       this.chulaiba1 = false;
       console.log(111);
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="scss" scoped>

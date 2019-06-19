@@ -3,14 +3,14 @@
     <router-link to="/login" class="my-hd" v-if="!islogined">
       <div
         class="my-hd__photo"
-        style="background-image: url(&quot;//gw.alicdn.com/tfs/TB1o4Bodr_I8KJjy1XaXXbsxpXa-150-150.png&quot;);"
+        style='background-image: url("//gw.alicdn.com/tfs/TB1o4Bodr_I8KJjy1XaXXbsxpXa-150-150.png");'
       ></div>
       <p class="my-hd__name" ref="phone">登录/注册</p>
     </router-link>
     <div class="my-hd" v-if="islogined">
       <div
         class="my-hd__photo"
-        style="background-image: url(&quot;//perico.damai.cn/userheadphotos/671293/134258687.jpg&quot;);"
+        style='background-image: url("//perico.damai.cn/userheadphotos/671293/134258687.jpg");'
       ></div>
       <p class="my-hd__name" v-text="username"></p>
     </div>
@@ -18,7 +18,11 @@
     <div class="my-list">
       <div data-spm="list" class="my-bd">
         <div class="my-bd__order">
-          <router-link to="/car" class="mine__list cell cell-bottom-border" data-spm="dorder">
+          <router-link
+            to="/car"
+            class="mine__list cell cell-bottom-border"
+            data-spm="dorder"
+          >
             <div class="title">
               <div class="mine-cell__box">
                 <i class="iconfont icon-dingdan iconfontleft"></i>
@@ -120,9 +124,11 @@
           </div>
         </div>
       </div>
-      <div class="my-login-out" @click="removecookie()" v-if="islogined">退出登录</div>
+      <div class="my-login-out" @click="removecookie()" v-if="islogined">
+        退出登录
+      </div>
       <div class="about-section">
-        <div class="about-link">关于大麦</div>
+        <div class="about-link" @click="gohome">关于大麦</div>
         <div class="about-line">|</div>
         <div class="about-link">联系我们</div>
       </div>
@@ -139,12 +145,20 @@ export default Vue.extend({
     };
   },
   methods: {
+    gohome() {
+      this.$router.push("/");
+    },
     checklogin() {
-      //判断是否登录
-      let str = document.cookie;
-      let arr = str.split("; ");
-      for (let ele of arr) {
-        let arr2 = ele.split("=");
+      // const phone = localStorage.getItem("phone");
+      // if (phone) {
+      //   this.islogined = true;
+      //   this.username = phone;
+      // }
+      // 判断是否登录
+      const str = document.cookie;
+      const arr = str.split("; ");
+      for (const ele of arr) {
+        const arr2 = ele.split("=");
         if (arr2[0] == "uname") {
           this.islogined = true;
           this.username = arr2[1];
@@ -152,32 +166,33 @@ export default Vue.extend({
       }
     },
     setcookie(value, day) {
-      //登录储存cookie
-      var now = new Date();
+      // 登录储存cookie
+      const now = new Date();
       now.setDate(now.getDate() + day);
       document.cookie = "uname=" + value + ";expires=" + now + ";path=/";
     },
     removecookie() {
-      //退出登录
+      // 退出登录
       this.setcookie("", -1);
+      // localStorage.removeItem('phone');
       this.$router.go(0);
-    },
-    renderName() {
-      let phone = localStorage.getItem("phone");
-      console.log(phone);
-      if (phone) {
-        this.$refs.phone.innerHTML = phone;
-      } else {
-        this.$refs.phone.innerHTML = "登录/注册";
-      }
     }
+    // renderName() {
+    //   let phone = localStorage.getItem("phone");
+    //   console.log(phone);
+    //   if (phone) {
+    //     this.$refs.phone.innerHTML = phone;
+    //   } else {
+    //     this.$refs.phone.innerHTML = "登录/注册";
+    //   }
+    // }
   },
 
   created() {
     this.checklogin();
   },
   mounted() {
-    this.renderName();
+    // this.renderName();
   }
 });
 </script>

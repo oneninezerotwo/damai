@@ -28,16 +28,16 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import BScroll from "better-scroll";
-import { constants } from "crypto";
+import Vue from 'vue';
+import BScroll from 'better-scroll';
+import { constants } from 'crypto';
 // import Vue from "vue";
 // import vuescroll from 'vue-scroll'
 export default Vue.extend({
   data() {
     return {
       projectInfo: [],
-      getlistok :true,
+      getlistok : true,
     };
   },
   created() {
@@ -47,29 +47,28 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick(() => {
-        //$refs绑定元素
-        if(!this.scroll){
+        // $refs绑定元素
+        if (!this.scroll) {
             this.scroll = new BScroll(this.$refs.wrapper, {
-            //开启点击事件 默认为false
-            click:true
-        })
+            // 开启点击事件 默认为false
+            click: true,
+        });
         // console.log(this.scroll)
-        }else if(!this.$refs.wrapper){
-            return
-        }
-        else{
-            this.scroll.refresh()
+        } else if (!this.$refs.wrapper) {
+            return;
+        } else {
+            this.scroll.refresh();
         }
       });
     this.createds();
     // this.scroll = new Bscroll(this.$refs.wrapper);
-    window.addEventListener("scroll", () => {
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {
-        console.log("到底部了");
+        console.log('到底部了');
       }
-      
+
     });
-    
+
   },
   // created(){
   //     this.createds();
@@ -80,13 +79,13 @@ export default Vue.extend({
     },
   },
   methods: {
-    onScroll(){
-      
+    onScroll() {
+
     },
     async createds() {
       this.$axios(
-        "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1"
-      ).then(res => {
+        'https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1',
+      ).then((res) => {
         console.log(res);
         this.projectInfo = res.data.data.projectInfo;
       });
@@ -94,7 +93,7 @@ export default Vue.extend({
     },
     async morelist() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1"
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/more1',
       );
       this.projectInfo = this.listarr.concat(data.data.data.nearByCity);
       this.getlistok = true;
@@ -106,7 +105,7 @@ export default Vue.extend({
         this.getlistok = false;
         this.morelist();
       }
-    }
+    },
   },
 
 

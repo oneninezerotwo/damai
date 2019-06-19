@@ -68,39 +68,39 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { mapState, mapActions } from "vuex";
+import Vue from 'vue';
+import { mapState, mapActions } from 'vuex';
 export default Vue.extend({
   data() {
     return {
-      ticket: []
+      ticket: [],
       // buyId: []
     };
   },
   computed: {
-    //映射数据
-    ...mapState(["dm_detail_info"])
+    // 映射数据
+    ...mapState(['dm_detail_info']),
   },
   created() {
-    let ids = this.$route.query.id;
+    const ids = this.$route.query.id;
     this.ticket.push(ids);
     console.log(this.ticket);
   },
   mounted() {
-    //获取图片列表
+    // 获取图片列表
     // console.log(this.dm_detail_info);
     this.getDetailInfo();
     this.renderBuyGoods();
   },
   methods: {
-    ...mapActions(["getDetailInfo"]),
-    //渲染相应的id商品
+    ...mapActions(['getDetailInfo']),
+    // 渲染相应的id商品
     renderBuyGoods() {
-      let allGoodsId = this.dm_detail_info.detailViewComponentMap.item
+      const allGoodsId = this.dm_detail_info.detailViewComponentMap.item
         .staticData.itemBase.itemId;
       console.log(allGoodsId);
-    }
-  }
+    },
+  },
 });
 </script>
 

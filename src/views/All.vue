@@ -48,13 +48,13 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 export default Vue.extend({
     data() {
     return {
       damai: [],
-      
-      
+
+
     };
   },
   mounted() {
@@ -67,7 +67,7 @@ export default Vue.extend({
   methods: {
     async created() {
       const data = await this.$axios(
-        "https://mtop.damai.cn/h5/mtop.damai.wireless.search.search/1.0/?jsv=2.5.0&appKey=12574478&t=1560387487816&sign=bd71f27208fa70eabb0df6ae15429326&type=originaljson&dataType=json&v=1.0&H5Request=true&AntiCreep=true&AntiFlood=true&api=mtop.damai.wireless.search.search&data=%7B%22cityId%22%3A%220%22%2C%22longitude%22%3A0%2C%22latitude%22%3A0%2C%22pageIndex%22%3A%221%22%2C%22pageSize%22%3A10%2C%22sortType%22%3A%223%22%2C%22categoryId%22%3A%220%22%2C%22startDate%22%3A%22%22%2C%22endDate%22%3A%22%22%2C%22option%22%3A31%2C%22sourceType%22%3A21%2C%22returnItemOption%22%3A4%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D"
+        'https://mtop.damai.cn/h5/mtop.damai.wireless.search.search/1.0/?jsv=2.5.0&appKey=12574478&t=1560387487816&sign=bd71f27208fa70eabb0df6ae15429326&type=originaljson&dataType=json&v=1.0&H5Request=true&AntiCreep=true&AntiFlood=true&api=mtop.damai.wireless.search.search&data=%7B%22cityId%22%3A%220%22%2C%22longitude%22%3A0%2C%22latitude%22%3A0%2C%22pageIndex%22%3A%221%22%2C%22pageSize%22%3A10%2C%22sortType%22%3A%223%22%2C%22categoryId%22%3A%220%22%2C%22startDate%22%3A%22%22%2C%22endDate%22%3A%22%22%2C%22option%22%3A31%2C%22sourceType%22%3A21%2C%22returnItemOption%22%3A4%2C%22dmChannel%22%3A%22damai%40damaih5_h5%22%7D',
       );
       console.log(data);
       this.damai = data.data.data.damai;
@@ -78,8 +78,8 @@ export default Vue.extend({
     // toggle: function(index) {
     //   this.active = index;
     // }
-  }
-})
+  },
+});
 </script>
 <style lang="scss" scoped>
 

@@ -14,7 +14,7 @@ export default new Vuex.Store({
     offtop: 0,
     locationcity: '全国',
     passportid: 0,
-    phoneNumber: []
+    phoneNumber: [],
   },
   mutations: {
     getDetailInfo(state, list) {

@@ -16,28 +16,28 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
       hotlist: [],
-      what: ""
+      what: '',
     };
   },
   methods: {
     async gethotlist() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/search"
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/search',
       );
       this.hotlist = data.data.data.result.data;
     },
     goblack() {
       this.$router.go(-1);
-    }
+    },
   },
   mounted() {
     this.gethotlist();
-  }
+  },
 });
 </script>
 

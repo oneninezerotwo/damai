@@ -12,30 +12,30 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
       navlist: [],
-      adpath: ""
+      adpath: '',
     };
   },
   methods: {
     async getlist() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/banner-nav"
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/banner-nav',
       );
       this.navlist = data.data.data.navigationList;
       this.adpath = data.data.data.bannerList[0].pic;
     },
 
     go_to_detail() {
-      this.$router.push({ name: "detail" });
-    }
+      this.$router.push({ name: 'detail' });
+    },
   },
   created() {
     this.getlist();
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>

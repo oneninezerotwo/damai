@@ -223,7 +223,9 @@
                 <a href="#" target="_self" class="password-login-link"
                   >账号密码登录</a
                 >
-                <a href="#" target="_top" class="register-link">新用户注册</a>
+                <router-link to="/register" target="_top" class="register-link"
+                  >新用户注册</router-link
+                >
               </div>
             </form>
           </div>
@@ -269,12 +271,22 @@ export default Vue.extend({
       console.log(this.code);
     },
     checkphone() {
+      let phone = localStorage.getItem("phone");
+
       let reg = /^1[3-9]\d{9}$/;
       if (reg.test(this.phone)) {
-        this.phoneok = 1;
+        if (phone == this.phone) {
+          this.phoneok = 1;
+        } else {
+          this.tip = "该手机号未注册";
+          this.showtip = 1;
+          setTimeout(() => {
+            this.showtip = 0;
+          }, 2000);
+        }
       } else {
         this.phoneok = 0;
-        this.tip = "手机号格式不正确"
+        this.tip = "手机号格式不正确";
         this.showtip = 1;
         setTimeout(() => {
           this.showtip = 0;
@@ -299,21 +311,15 @@ export default Vue.extend({
       this.checkphone();
       this.checkcode();
       if (this.phoneok && this.codeok) {
-        this.$router.push("/mine");
         let now = new Date();
         now.setDate(now.getDate() + 7);
         document.cookie = "uname=" + this.phone + ";expires=" + now + ";path=/";
+        this.$router.push("/mine");
       }
     }
   }
 });
 </script>
-
-
-<script>
-export default {};
-</script>
-
 
 
 <style lang="less" scoped>

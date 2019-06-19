@@ -37,32 +37,32 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
       passport: {},
       show: [],
-      weeklis: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"]
+      weeklis: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
     };
   },
   computed: {
     passportid() {
       return this.$store.state.passportid;
-    }
+    },
   },
   methods: {
     async getpassport() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/activity" +
-          this.passportid
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/activity' +
+          this.passportid,
       );
       this.passport = data.data.data;
     },
     async getshow() {
       const data = await this.$axios(
-        "https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/activityshow" +
-          this.passportid
+        'https://www.easy-mock.com/mock/5cf62f5f95ac1528e1ea0aa8/activityshow' +
+          this.passportid,
       );
       this.show = data.data.data.projectInfo;
     },
@@ -75,13 +75,13 @@ export default Vue.extend({
       showtime.month = month + 1;
       console.log(showtime);
       return showtime;
-    }
+    },
   },
   mounted() {
     this.getpassport();
     this.getshow();
     this.getdate();
-  }
+  },
 });
 </script>
 

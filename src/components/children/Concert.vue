@@ -28,15 +28,15 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import BScroll from "better-scroll";
-import { constants } from "crypto";
+import Vue from 'vue';
+import BScroll from 'better-scroll';
+import { constants } from 'crypto';
 // import Vue from "vue";
 // import vuescroll from 'vue-scroll'
 export default Vue.extend({
   data() {
     return {
-      projectInfo: []
+      projectInfo: [],
     };
   },
   created() {
@@ -46,18 +46,17 @@ export default Vue.extend({
   },
   mounted() {
     this.$nextTick(() => {
-        //$refs绑定元素
-        if(!this.scroll){
+        // $refs绑定元素
+        if (!this.scroll) {
             this.scroll = new BScroll(this.$refs.wrapper, {
-            //开启点击事件 默认为false
-            click:true
-        })
+            // 开启点击事件 默认为false
+            click: true,
+        });
         // console.log(this.scroll)
-        }else if(!this.$refs.wrapper){
-            return
-        }
-        else{
-            this.scroll.refresh()
+        } else if (!this.$refs.wrapper) {
+            return;
+        } else {
+            this.scroll.refresh();
         }
       });
     this.createds();
@@ -66,17 +65,17 @@ export default Vue.extend({
     //   if (window.scrollY > 200) {
     //     console.log("到底部了");
     //   }
-      
+
     // });
-    
+
   },
   // created(){
   //     this.createds();
   // },
   computed: {},
   methods: {
-    onScroll(){
-      
+    onScroll() {
+
     },
     async createds() {
       // const data = await this.$axios(
@@ -88,8 +87,8 @@ export default Vue.extend({
       // // this.menuss[0].imgpath = require(this.menuss[0].imgpath);
       // console.log(this.projectInfo[0].actores);
       this.$axios(
-        "https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1"
-      ).then(res => {
+        'https://www.easy-mock.com/mock/5cf65fe009bd2e7650a89837/example/damai1',
+      ).then((res) => {
         // console.log(res);
 
         this.projectInfo = res.data.data.projectInfo;
@@ -123,11 +122,11 @@ export default Vue.extend({
         //   }
         // });
       });
-    }
+    },
     // toggle: function(index) {
     //   this.active = index;
     // }
-  }
+  },
 });
 </script>
 <style lang="scss" scoped>
